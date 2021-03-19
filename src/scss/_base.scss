@@ -1,19 +1,58 @@
 // DIMENSIONS
 $height-header: 10rem;
 
+// Padding
+
+$section-padding-top: 10rem;
+
+// ----------- COLOR
+$color-primary: rgb(17, 0, 255);
+$color-white: #fff;
+$color-text: rgba(0, 0, 0, 0.8);
+
 // FONT
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap");
 $font-family-text: "Montserrat", sans-serif;
 $font-family-header: "Lato", sans-serif;
+$font-size-primary: 14px;
 
-$font-size-primary: 16px;
-
-// ----------- COLOR
-$color-primary: rgb(17, 0, 255);
+p {
+  letter-spacing: 0.2px;
+  word-spacing: 2px;
+  line-height: 3.5rem;
+  color: $color-text;
+}
 
 // ANIMATIONS
 $transition-default: all 0.2s ease-in;
+
+// Borders
+$border-radius: 10px;
+
+// -----------Reuseable elements
+
+// Button Default
+.button {
+  display: block;
+  width: 20rem;
+  height: 8rem;
+  background: $color-white;
+  display: grid;
+  place-items: center;
+  border-radius: $border-radius;
+  margin: 0 auto;
+  transition: $transition-default;
+
+  &:hover {
+    color: $color-primary;
+  }
+
+  & > p {
+    text-transform: uppercase;
+    font-weight: bold;
+  }
+}
 
 // ----------- RESET CSS
 *,
@@ -58,6 +97,7 @@ h3,
 h4,
 h5,
 h6,
+p,
 th,
 td,
 caption {

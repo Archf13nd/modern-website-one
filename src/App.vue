@@ -20,4 +20,13 @@ export default {
 #app {
   min-height: 10rem;
 }
+
+@keyframes slide-in {
+  from {
+    transform: translateX(-50rem);
+  }
+  to {
+    transform: none;
+  }
+}
 </style>
