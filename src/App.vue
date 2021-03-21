@@ -29,4 +29,13 @@ export default {
     transform: none;
   }
 }
+
+// @keyframes slideLeft {
+//   from {
+//     transform: translateX(10rem);
+//   }
+//   to {
+//     transform: none;
+//   }
+// }
 </style>

@@ -3,7 +3,7 @@
     <div class="hero__text">
       <h1 class="hero__title">We build the future</h1>
       <h2 class="hero__title hero__title--sub">Idea - solution - results</h2>
-      <a class="button hero__button"><p>Discover</p></a>
+      <a class="button hero__button">Discover</a>
     </div>
   </div>
 </template>
@@ -34,6 +34,7 @@
     --marginY: 5rem;
     margin-top: var(--marginY);
     box-shadow: 0 2rem 2rem rgba(0, 0, 0, 0.5);
+    color: $color-black;
 
     &:hover {
       transform: translateY(calc(var(--marginY) * -0.05));
