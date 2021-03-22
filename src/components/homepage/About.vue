@@ -1,7 +1,7 @@
 <template>
   <div class="about" ref="about">
     <div class="intro">
-      <transition name="slide-left-section-title">
+      <transition :css="false" @enter="enter($event, 300)">
         <h3
           v-show="animate"
           class="about__section-title about__section-title--animate"
@@ -10,12 +10,12 @@
         </h3>
       </transition>
       <div class="intro__title-wrapper">
-        <transition name="slide-right-title">
+        <transition :css="false" @enter="enter($event, -300)">
           <h1 v-show="animate" class="title intro__title">
             From thought to reality
           </h1>
         </transition>
-        <transition name="slide-left-underline">
+        <transition :css="false" @enter="enter($event, 300)">
           <div v-show="animate" class="underline"></div>
         </transition>
       </div>
@@ -43,8 +43,19 @@
     </div>
     <div class="outro">
       <div class="outro-text outro-text--1">
-        <div class="outro-text__label">Advantages</div>
-        <h1 class="title outro-text__title">Working on exclusive projects</h1>
+        <transition :css="false" @enter="enter($event, 300)">
+          <div v-show="animate" class="outro-text__label">Advantages</div>
+        </transition>
+        <div class="intro__title-wrapper">
+          <transition :css="false" @enter="enter($event, -300)">
+            <h1 v-show="animate" class="title outro-text__title">
+              Working on exclusive projects
+            </h1>
+          </transition>
+          <transition :css="false" @enter="enter($event, 300)">
+            <div v-show="animate" class="underline"></div>
+          </transition>
+        </div>
         <p class="outro-text__paragraph">
           Lorem, ipsum dolor sit amet consectetur adipisicing elit. Laborum, vel
           ipsum ea dolor cum sint consectetur rerum ipsa voluptas excepturi,
@@ -74,6 +85,44 @@ export default {
     return { active: false };
   },
   methods: {
+    // Transition function, takes event data and the inital distance which can be positive or negative
+    enter(e, initialValue) {
+      // Assigns the number sign and makes initalValue an absolute value
+      let numberSign = "+";
+      if (initialValue < 0) {
+        numberSign = "-";
+        initialValue *= -1;
+      }
+
+      // Sets the timestamp to calculate the time elapsed inside animation function
+      let theBeginningOfTime;
+
+      const animateSlideIn = (time) => {
+        // Sets the speed
+        time *= 0.2;
+        // Stores when time began
+        if (!theBeginningOfTime) {
+          theBeginningOfTime = time;
+        }
+        const timeElapsed = time - theBeginningOfTime;
+        // As time passes calculatedNewValue will get closer and closer to zero. Math.min() is used to prevent transform from going over its final position
+        const calculatedNewValue =
+          initialValue -
+          Math.min((initialValue / 100) * timeElapsed, initialValue);
+        // Transforms the element
+        e.style.transform = `translate(${numberSign}${calculatedNewValue}px)`;
+        // BASE CASE - is 100 because we divide initialValue by 100. Once time is equal to 100 initialValue subtracts 100% of itself meaning transform translate is now 0 and element is in final position
+        if (timeElapsed < 100) {
+          requestAnimationFrame(animateSlideIn);
+        } else {
+          return;
+        }
+      };
+      requestAnimationFrame(animateSlideIn);
+    },
+    afterEnter(e) {
+      e.style.opacity = 1;
+    },
     timeout() {
       setTimeout(() => {
         this.active = true;
