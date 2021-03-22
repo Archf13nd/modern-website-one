@@ -6,6 +6,9 @@
 // ----------- Layout ----------------------------------------------------------------
 $height-header: 10rem;
 $section-padding-top: 10rem;
+// Affected by scrollbar. I do a lot of math and if you change the scrollbar size you need to reflect that here.
+// Width in px but don't add px to number. I.e. If scrollbar 18px, 1920 - 18 means value should be 1902
+$body-width: 1902;
 
 // ----------- -------COLOR
 $color-primary: rgb(21, 255, 0);
@@ -50,13 +53,32 @@ $border-radius: 10px;
 
 // ----------- Reuseable Elements --------------------------------------------------------
 
-// Underline for title
-.underline {
-  left: 0;
-  height: 5px;
-  width: 10rem;
-  background: $color-primary;
+// Headings
+
+.headings {
+  position: relative;
+  width: 100%;
+  min-width: min-content;
+  max-height: min-content;
+
+  &__section-title {
+    position: absolute;
+    top: -3rem;
+  }
+
+  &__title {
+    width: 100%;
+  }
+
+  &__underline {
+    margin-top: 3rem;
+    height: 5px;
+    width: 10rem;
+    background: $color-primary;
+  }
 }
+
+// Underline for title
 
 // Button Default
 .button {
