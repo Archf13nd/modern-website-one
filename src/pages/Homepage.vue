@@ -1,10 +1,12 @@
 <template>
   <the-hero></the-hero>
   <the-about @aboutRef="aboutRef = $event" :animate="animate"></the-about>
+  <the-portfolio></the-portfolio>
 </template>
 <script>
 import TheHero from "../components/homepage/Hero.vue";
 import TheAbout from "../components/homepage/About.vue";
+import ThePortfolio from "../components/homepage/Portfolio.vue";
 export default {
   data() {
     return {
@@ -15,6 +17,7 @@ export default {
   components: {
     TheHero,
     TheAbout,
+    ThePortfolio,
   },
   mounted() {
     const adjustNav = (value) => {

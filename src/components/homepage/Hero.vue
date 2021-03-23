@@ -31,6 +31,7 @@
   }
 
   &__button {
+    // By setting top and bottom margin here it automatically adjusts the transform translate when hovering over button
     --marginY: 5rem;
     margin-top: var(--marginY);
     box-shadow: 0 2rem 2rem rgba(0, 0, 0, 0.5);
