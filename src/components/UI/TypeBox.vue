@@ -16,6 +16,9 @@
       </transition>
     </div>
     <div class="article__paragraphs">
+      <p class="paragraph-highlight">
+        <slot name="p-highlight"></slot>
+      </p>
       <p>
         <slot></slot>
       </p>
@@ -36,4 +39,29 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+// Helpers
+.paragraph-highlight {
+  color: $color-black;
+  font-weight: 600;
+  margin-bottom: 2rem;
+}
+.article {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+
+  &__headings {
+    padding: 0 2rem 0 2rem;
+    @media screen and (min-width: 800px) {
+      padding: 0 2rem 0 5rem;
+    }
+    margin-top: 3rem;
+    flex: 1 1 40%;
+  }
+  &__paragraphs {
+    flex: 1 1 60%;
+    padding: 2rem;
+  }
+}
+</style>

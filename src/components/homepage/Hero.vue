@@ -12,20 +12,21 @@
 .hero {
   width: 100%;
   height: calc(100vh - #{$height-header});
-  background: center/100% no-repeat url("../../assets/img/Hero.jpg");
+  background: center/cover no-repeat url("../../assets/img/Hero.jpg");
 
   display: grid;
   place-items: center;
 
   &__title {
     text-transform: uppercase;
-    font-size: 4vw;
+    font-size: clamp(4vw, 4rem, 6vw);
     color: $color-white;
 
     &--sub {
       text-transform: capitalize;
 
-      font-size: 2vw;
+      font-size: clamp(1vw, 3rem, 3vw);
+
       text-align: center;
     }
   }

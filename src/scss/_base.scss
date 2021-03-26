@@ -4,6 +4,20 @@
 }
 
 // ----------- Layout ----------------------------------------------------------------
+
+// Grid for each page
+@mixin pageGrid {
+  @media screen and (min-width: 700px) {
+    position: relative;
+    width: 100%;
+    display: grid;
+    grid:
+      repeat(auto-fill, minmax(0, min-content)) / minmax(0, 1fr)
+      minmax(auto, 1080px)
+      minmax(0, 1fr);
+  }
+}
+
 @media screen and (min-width: 1600px) {
   $margin-section-top: 13rem;
 }
@@ -31,11 +45,11 @@ $font-size-header--lg: 6em;
 
 p,
 a {
+  font-size: $font-size-primary;
   letter-spacing: 0.2px;
   word-spacing: 2px;
   line-height: 3.5rem;
   color: $color-text;
-  font-size: $font-size-primary;
 }
 
 h1 {
@@ -65,12 +79,15 @@ $border-radius: 10px;
   max-height: min-content;
 
   &__section-title {
+    font-weight: normal;
+    text-transform: uppercase;
     position: absolute;
     top: -4rem;
   }
 
   &__title {
     width: 100%;
+    text-transform: uppercase;
   }
 
   &__underline {

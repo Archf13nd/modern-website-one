@@ -1,12 +1,14 @@
 <template>
   <the-hero></the-hero>
   <the-about @aboutRef="aboutRef = $event" :animate="animate"></the-about>
-  <the-portfolio></the-portfolio>
+  <the-portfolio :animate="animate"></the-portfolio>
+  <the-contact-form></the-contact-form>
 </template>
 <script>
 import TheHero from "../components/homepage/Hero.vue";
 import TheAbout from "../components/homepage/About.vue";
 import ThePortfolio from "../components/homepage/Portfolio.vue";
+import TheContactForm from "../components/global/Contact.vue";
 export default {
   data() {
     return {
@@ -18,6 +20,7 @@ export default {
     TheHero,
     TheAbout,
     ThePortfolio,
+    TheContactForm,
   },
   mounted() {
     const adjustNav = (value) => {

@@ -7,15 +7,18 @@
       <template v-slot:h1>
         From thought to reality
       </template>
-      <p>
+      <template v-slot:p-highlight>
         Lorem ipsum dolor sit amet consectetur, adipisicing elit. Praesentium
         esse ipsam debitis dolores impedit inventore aut adipisci nobis,
-        pariatur optio.<br />
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos
-        debitis laboriosam numquam. Alias ex consectetur mollitia necessitatibus
-        maxime voluptatem inventore quos corrupti incidunt molestias? Dolore
-        exercitationem sunt magni minus eveniet?
-      </p>
+        pariatur
+      </template>
+
+      Lorem ipsum dolor sit amet consectetur, adipisicing elit. Praesentium esse
+      ipsam debitis dolores impedit inventore aut adipisci nobis, pariatur
+      optio. Lorem ipsum dolor sit amet consectetur adipisicing elit.
+      Dignissimos debitis laboriosam numquam. Alias ex consectetur mollitia
+      necessitatibus maxime voluptatem inventore quos corrupti incidunt
+      molestias? Dolore exercitationem sunt magni minus eveniet?
     </the-type-box>
     <div class="cards">
       <transition :css="false" @enter="enter($event, -300)">
@@ -105,20 +108,11 @@ export default {
 
 <style lang="scss" scoped>
 .about {
-  @media screen and (min-width: 700px) {
-    position: relative;
-    padding-top: $section-padding-top;
-    width: 100%;
-    min-height: 100vh;
-    display: grid;
-    grid:
-      repeat(auto-fill, minmax(0, min-content)) / minmax(0, 1fr)
-      minmax(auto, 1000px)
-      minmax(0, 1fr);
-  }
+  @include pageGrid;
 }
 
 .article {
+  margin-top: 10rem;
   grid-column: 2 / 3;
 }
 
@@ -237,7 +231,7 @@ export default {
   width: 100%;
   grid-column: 1 / 4;
   place-self: center;
-  margin: 0rem 2rem 0 2rem;
+
   display: flex;
   // flex-direction: row;
   flex-wrap: wrap;
@@ -260,7 +254,8 @@ export default {
     display: flex;
     justify-content: center;
     align-items: flex-end;
-    margin: 3rem 0;
+    margin: 3rem 2rem;
+
     & > h1 {
       color: $color-white;
       margin-bottom: 10rem;
