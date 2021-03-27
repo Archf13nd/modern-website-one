@@ -11,6 +11,7 @@ export const transitionSlide = {
       const axis = "X";
       console.log("Hahahah from transitions");
       if (window.screenX < 1000) {
+        console.log("Screen size is too small!!!");
         return;
       }
       // Assigns the number sign and makes initalValue an absolute value
