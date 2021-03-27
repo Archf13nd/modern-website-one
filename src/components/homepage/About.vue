@@ -21,19 +21,23 @@
       molestias? Dolore exercitationem sunt magni minus eveniet?
     </the-type-box>
     <div class="cards" ref="cardsRef">
-      <transition :css="false" @enter="enter($event, -300)">
+      <transition name="leftToRight" :css="false" @enter="enter($event, -300)">
         <div v-show="animateCards" class="cards__card cards__card--1">
           <h1>Hello</h1>
         </div>
       </transition>
 
-      <transition :css="false" @enter="enter($event, -300, 'Y')">
+      <transition
+        name="fromAbovetoDown"
+        :css="false"
+        @enter="enter($event, -300, 'Y')"
+      >
         <div v-show="animateCards" class="cards__card cards__card--2">
           <h1>Greetings</h1>
         </div>
       </transition>
 
-      <transition :css="false" @enter="enter($event, 300)">
+      <transition name="rightToLeft" :css="false" @enter="enter($event, 300)">
         <div v-show="animateCards" class="cards__card cards__card--3">
           <h1>Hi</h1>
         </div>
