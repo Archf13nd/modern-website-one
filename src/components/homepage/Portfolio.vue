@@ -1,6 +1,6 @@
 <template>
-  <section class="portfolio">
-    <the-type-box :animate="animate">
+  <section class="portfolio" ref="portfolio">
+    <the-type-box :animate="animatePortfolio">
       <template v-slot:h3>
         Portfolio
       </template>
@@ -58,9 +58,12 @@
 <script>
 import TheTypeBox from "../UI/TypeBox.vue";
 export default {
-  props: ["animate"],
+  props: ["animatePortfolio"],
   components: {
     TheTypeBox,
+  },
+  mounted() {
+    this.$emit("portfolioRef", this.$refs.portfolio);
   },
 };
 </script>

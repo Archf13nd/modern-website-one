@@ -1,8 +1,21 @@
 <template>
   <the-hero></the-hero>
-  <the-about @aboutRef="aboutRef = $event" :animate="animate"></the-about>
-  <the-portfolio :animate="animate"></the-portfolio>
-  <the-contact-form></the-contact-form>
+  <the-about
+    @aboutRef="aboutRef = $event"
+    @cardsRef="cardsRef = $event"
+    @outroRef="outroRef = $event"
+    :animateAbout="animateAbout"
+    :animateCards="animateCards"
+    :animateOutro="animateOutro"
+  ></the-about>
+  <the-portfolio
+    :animatePortfolio="animatePortfolio"
+    @portfolioRef="portfolioRef = $event"
+  ></the-portfolio>
+  <the-contact-form
+    @contactRef="contactRef = $event"
+    :animateContact="animateContact"
+  ></the-contact-form>
 </template>
 <script>
 import TheHero from "../components/homepage/Hero.vue";
@@ -13,7 +26,15 @@ export default {
   data() {
     return {
       aboutRef: null,
-      animate: false,
+      outroRef: null,
+      cardsRef: null,
+      contactRef: null,
+      portfolioRef: null,
+      animateAbout: false,
+      animateOutro: false,
+      animateCards: false,
+      animatePortfolio: false,
+      animateContact: false,
     };
   },
   components: {
@@ -23,31 +44,44 @@ export default {
     TheContactForm,
   },
   mounted() {
-    const adjustNav = (value) => {
-      this.animate = value;
-    };
-    const element = this.aboutRef;
-    function createObserver() {
-      let observer;
-
-      let options = {
-        root: null,
-        rootMargin: "0px",
-        threshold: 0.1,
-      };
-
-      observer = new IntersectionObserver((entry) => {
-        if (entry[0].isIntersecting) {
-          adjustNav(true);
-          console.log(true);
-        } else {
-          adjustNav(false);
-          console.log(false);
-        }
-      }, options);
-      observer.observe(element);
+    if (window.screenX < 1000) {
+      this.animate = true;
     }
-    createObserver();
+
+    let options = {
+      root: null,
+      threshold: 0.2,
+      rootMargin: "0px",
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      console.log(entries);
+      entries.forEach((entry) => {
+        console.log(entry.target === this.aboutRef);
+        if (!entry.isIntersecting) {
+          return;
+        }
+        if (entry.target === this.aboutRef) {
+          this.animateAbout = true;
+          console.log(entry, "About");
+        } else if (entry.target === this.cardsRef) {
+          this.animateCards = true;
+        } else if (entry.target === this.portfolioRef) {
+          this.animatePortfolio = true;
+        } else if (entry.target === this.contactRef) {
+          this.animateContact = true;
+          console.log("hahaha");
+        } else {
+          this.animateOutro = true;
+        }
+      });
+    }, options);
+
+    observer.observe(this.aboutRef);
+    observer.observe(this.outroRef);
+    observer.observe(this.cardsRef);
+    observer.observe(this.portfolioRef);
+    observer.observe(this.contactRef);
   },
 };
 </script>

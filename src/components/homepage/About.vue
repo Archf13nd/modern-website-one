@@ -1,6 +1,6 @@
 <template>
   <div class="about" ref="about">
-    <the-type-box :animate="animate">
+    <the-type-box :animate="animateAbout">
       <template v-slot:h3>
         About
       </template>
@@ -20,40 +20,40 @@
       necessitatibus maxime voluptatem inventore quos corrupti incidunt
       molestias? Dolore exercitationem sunt magni minus eveniet?
     </the-type-box>
-    <div class="cards">
+    <div class="cards" ref="cardsRef">
       <transition :css="false" @enter="enter($event, -300)">
-        <div v-show="animate" class="cards__card cards__card--1">
+        <div v-show="animateCards" class="cards__card cards__card--1">
           <h1>Hello</h1>
         </div>
       </transition>
 
       <transition :css="false" @enter="enter($event, -300, 'Y')">
-        <div v-show="animate" class="cards__card cards__card--2">
+        <div v-show="animateCards" class="cards__card cards__card--2">
           <h1>Greetings</h1>
         </div>
       </transition>
 
       <transition :css="false" @enter="enter($event, 300)">
-        <div v-show="animate" class="cards__card cards__card--3">
+        <div v-show="animateCards" class="cards__card cards__card--3">
           <h1>Hi</h1>
         </div>
       </transition>
     </div>
     <div class="outro">
-      <div class="outro-text outro-text--1">
+      <div class="outro-text outro-text--1" ref="outroOne">
         <div class="headings">
           <transition :css="false" @enter="enter($event, 300)">
-            <h3 v-show="animate" class="headings__section-title">
+            <h3 v-show="animateOutro" class="headings__section-title">
               Advantages
             </h3>
           </transition>
           <transition :css="false" @enter="enter($event, -300)">
-            <h1 v-show="animate" class="headings__title">
+            <h1 v-show="animateOutro" class="headings__title">
               Working on exclusive projects
             </h1>
           </transition>
           <transition :css="false" @enter="enter($event, 300)">
-            <div v-show="animate" class="headings__underline"></div>
+            <div v-show="animateOutro" class="headings__underline"></div>
           </transition>
         </div>
         <p>
@@ -86,7 +86,7 @@ import TheTypeBox from "../UI/TypeBox.vue";
 import { transitionSlide } from "../../vue-mixins/transition-animation-slide.js";
 export default {
   mixins: [transitionSlide],
-  props: ["animate"],
+  props: ["animateAbout", "animateOutro", "animateCards"],
   components: {
     TheTypeBox,
   },
@@ -102,6 +102,8 @@ export default {
   },
   mounted() {
     this.$emit("aboutRef", this.$refs.about);
+    this.$emit("outroRef", this.$refs.outroOne);
+    this.$emit("cardsRef", this.$refs.cardsRef);
   },
 };
 </script>
@@ -128,14 +130,32 @@ export default {
     margin-top: 33rem;
   }
   & .outro-text {
-    width: 70%;
+    width: 90%;
     height: fit-content;
-    margin: 5rem auto;
-    padding: 10rem 5rem 5rem 5rem;
+    margin: 0rem auto;
+
     color: $color-black;
+    padding: 7rem 5rem 5rem 5rem;
+
     & > p {
       margin-top: 3rem;
       margin-bottom: 3rem;
+    }
+
+    & h1 {
+      font-size: 3em;
+    }
+
+    @media screen and (min-width: 1000px) {
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 10rem 5rem 5rem 5rem;
+      margin: 5rem auto;
+
+      & > .headings > .headings__title {
+        font-size: 6em;
+      }
     }
 
     &--1 {
@@ -150,14 +170,10 @@ export default {
       @media screen and (min-width: 1000px) {
         position: relative;
         height: 89rem;
-        z-index: 1;
-        display: flex;
-        flex-direction: column;
         padding: 0 0 5rem 0;
         margin: 0;
         width: calc(calc(1328 / #{$body-width}) * 100%);
         align-items: flex-start;
-        justify-content: flex-end;
 
         & > * {
           margin-left: 21.686%;
@@ -167,7 +183,6 @@ export default {
       }
       @media screen and (min-width: 1500px) {
         padding-bottom: 15rem;
-
         & > * {
           width: 36.5%;
         }
@@ -177,8 +192,8 @@ export default {
     &--2 {
       @media screen and (min-width: 600px) {
         color: $color-black;
-        background: center / 170% no-repeat
-          url("https://cdn.pixabay.com/photo/2018/11/22/23/57/london-3833039_960_720.jpg")
+        background: center / cover no-repeat
+          url("https://cdn.pixabay.com/photo/2016/12/17/20/05/building-1914309_960_720.jpg")
           rgba(255, 145, 0, 0.644);
         background-blend-mode: screen;
       }
@@ -187,18 +202,13 @@ export default {
         color: $color-black;
         width: 118rem;
         max-height: 128rem;
+        height: 60vw;
         min-height: 100rem;
         padding: 0 0 11rem 0;
         margin: 0;
-
         z-index: 2;
-        -webkit-font-smoothing: antialiased;
-        display: flex;
-        flex-direction: column;
-        height: 60vw;
         width: calc(calc(944 / #{$body-width}) * 100%);
         align-items: flex-end;
-        justify-content: flex-end;
         position: absolute;
         bottom: 23rem;
 
@@ -229,6 +239,7 @@ export default {
   --card-width: 349px;
   --card-spacing: 6rem;
   width: 100%;
+  min-height: 564px;
   grid-column: 1 / 4;
   place-self: center;
 

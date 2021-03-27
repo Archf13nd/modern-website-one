@@ -7,6 +7,9 @@ export const transitionSlide = {
   methods: {
     // Transition function, takes event data and the inital distance which can be positive or negative
     enter(e, initialValue, axis = "X") {
+      if (window.screenX < 1000) {
+        return;
+      }
       // Assigns the number sign and makes initalValue an absolute value
       let numberSign = "+";
       if (initialValue < 0) {

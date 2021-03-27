@@ -1,20 +1,20 @@
 <template>
-  <div class="contact">
+  <div class="contact" ref="contact">
     <div class="contact__wrapper">
       <div class="contact__info">
         <div class="headings article__headings">
           <transition :css="false" @enter="enter($event, 300)">
-            <h3 v-if="animateTrue" class="headings__section-title">
+            <h3 v-if="animateContact" class="headings__section-title">
               Let's get in touch
             </h3>
           </transition>
           <transition :css="false" @enter="enter($event, -300)">
-            <h1 v-if="animateTrue" class="titles headings__title">
+            <h1 v-if="animateContact" class="titles headings__title">
               Contact Details
             </h1>
           </transition>
           <transition :css="false" @enter="enter($event, 300)">
-            <div v-if="animateTrue" class="headings__underline"></div>
+            <div v-if="animateContact" class="headings__underline"></div>
           </transition>
         </div>
         <ul>
@@ -37,18 +37,19 @@
         <input type="text" placeholder="Name" />
         <input type="email" placeholder="Email" />
         <textarea placeholder="Your Message"></textarea>
-        <button class="button">Send</button>
+        <button type="submit">Send</button>
       </form>
     </div>
   </div>
 </template>
 
 <script>
+import { transitionSlide } from "../../vue-mixins/transition-animation-slide.js";
 export default {
-  data() {
-    return {
-      animateTrue: true,
-    };
+  mixins: [transitionSlide],
+  props: ["animateContact"],
+  mounted() {
+    this.$emit("contactRef", this.$refs.contact);
   },
 };
 </script>
@@ -65,11 +66,23 @@ export default {
     margin: 0 4rem;
   }
 
+  &__info {
+    & h1 {
+      font-size: 4em;
+    }
+  }
+
   &__form {
     display: flex;
     flex-direction: column;
     flex: 1 0 400px;
     padding-right: 10rem;
+
+    & > * {
+      font-family: $font-family-text;
+      font-size: 2rem;
+      padding: 2rem 1rem;
+    }
 
     & > input {
       height: 4rem;
@@ -78,6 +91,16 @@ export default {
 
     & > textarea {
       height: 30rem;
+    }
+
+    & > button {
+      width: 8rem;
+      height: 4rem;
+      margin-top: 3rem;
+      padding: 0;
+      border: none;
+      background: $color-primary;
+      border-radius: 5px;
     }
   }
 }
