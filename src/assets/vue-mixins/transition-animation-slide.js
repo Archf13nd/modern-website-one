@@ -7,6 +7,7 @@ export const transitionSlide = {
   methods: {
     // Transition function, takes event data and the inital distance which can be positive or negative
     enter(e, initialValue, axis = "X") {
+      console.log("Hahahah from transitions");
       if (window.screenX < 1000) {
         return;
       }

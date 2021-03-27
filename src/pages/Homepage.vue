@@ -55,22 +55,18 @@ export default {
     };
 
     const observer = new IntersectionObserver((entries) => {
-      console.log(entries);
       entries.forEach((entry) => {
-        console.log(entry.target === this.aboutRef);
         if (!entry.isIntersecting) {
           return;
         }
         if (entry.target === this.aboutRef) {
           this.animateAbout = true;
-          console.log(entry, "About");
         } else if (entry.target === this.cardsRef) {
           this.animateCards = true;
         } else if (entry.target === this.portfolioRef) {
           this.animatePortfolio = true;
         } else if (entry.target === this.contactRef) {
           this.animateContact = true;
-          console.log("hahaha");
         } else {
           this.animateOutro = true;
         }
