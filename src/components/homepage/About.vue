@@ -87,7 +87,7 @@
 
 <script>
 import TheTypeBox from "../UI/TypeBox.vue";
-import { transitionSlide } from "../../vue-mixins/transition-animation-slide.js";
+import { transitionSlide } from "../../assets/vue-mixins/transition-animation-slide.js";
 export default {
   mixins: [transitionSlide],
   props: ["animateAbout", "animateOutro", "animateCards"],

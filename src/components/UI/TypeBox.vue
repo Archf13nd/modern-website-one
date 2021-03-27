@@ -27,7 +27,7 @@
 </template>
 
 <script>
-import { transitionSlide } from "../../vue-mixins/transition-animation-slide";
+import { transitionSlide } from "../../assets/vue-mixins/transition-animation-slide";
 export default {
   props: ["animate"],
   mixins: [transitionSlide],
