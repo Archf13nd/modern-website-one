@@ -22,10 +22,9 @@
     </the-type-box>
     <div class="cards" ref="cardsRef">
       <transition
-        name="leftToRight"
         :css="false"
-        @enter="enter($event, -300)"
-        mode="out-in"
+        @enter="enter"
+        :style="{ transform: 'translateX(-300px)' }"
       >
         <div v-show="animateCards" class="cards__card cards__card--1">
           <h1>Hello</h1>
@@ -33,10 +32,9 @@
       </transition>
 
       <transition
-        name="fromAbovetoDown"
         :css="false"
-        @enter="enter($event, -300, 'Y')"
-        mode="out-in"
+        @enter="enter"
+        :style="{ transform: 'translateY(-300px)' }"
       >
         <div v-show="animateCards" class="cards__card cards__card--2">
           <h1>Greetings</h1>
@@ -44,10 +42,9 @@
       </transition>
 
       <transition
-        name="rightToLeft"
         :css="false"
-        @enter="enter($event, 300)"
-        mode="out-in"
+        @enter="enter"
+        :style="{ transform: 'translateX(300px)' }"
       >
         <div v-show="animateCards" class="cards__card cards__card--3">
           <h1>Hi</h1>
@@ -57,17 +54,29 @@
     <div class="outro">
       <div class="outro-text outro-text--1" ref="outroOne">
         <div class="headings">
-          <transition :css="false" @enter="enter($event, 300)">
+          <transition
+            :css="false"
+            @enter="enter"
+            :style="{ transform: 'translateX(300px)' }"
+          >
             <h3 v-show="animateOutro" class="headings__section-title">
               Advantages
             </h3>
           </transition>
-          <transition :css="false" @enter="enter($event, -300)">
+          <transition
+            :css="false"
+            @enter="enter"
+            :style="{ transform: 'translateX(-300px)' }"
+          >
             <h1 v-show="animateOutro" class="headings__title">
               Working on exclusive projects
             </h1>
           </transition>
-          <transition :css="false" @enter="enter($event, 300)">
+          <transition
+            :css="false"
+            @enter="enter"
+            :style="{ transform: 'translateX(300px)' }"
+          >
             <div v-show="animateOutro" class="headings__underline"></div>
           </transition>
         </div>

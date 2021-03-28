@@ -7,9 +7,16 @@ export const transitionSlide = {
   methods: {
     // Transition function, takes event data and the inital distance which can be positive or negative
     enter(e, done) {
-      let initialValue = 300;
-      const axis = "X";
-      console.log("Hahahah from transitions");
+      console.log(e);
+      let initialValue;
+      let p1 = 11;
+      let endLoop = false;
+      const axis = e.style.transform[p1 - 2];
+      while (p1 < e.style.transform.length && !endLoop) {
+        e.style.transform[p1] === "p" ? (endLoop = true) : p1++;
+      }
+      initialValue = e.style.transform.slice(11, p1);
+      // Prevent animation on small screen sizes
       if (window.innerWidth < 1000) {
         return;
       }

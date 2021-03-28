@@ -61,14 +61,17 @@ export default {
         }
         if (entry.target === this.aboutRef) {
           this.animateAbout = true;
-        } else if (entry.target === this.cardsRef) {
+        } else if (entry.target === this.cardsRef && !this.animateCards) {
           this.animateCards = true;
-        } else if (entry.target === this.portfolioRef) {
+        } else if (entry.target === this.outroRef) {
+          this.animateOutro = true;
+        } else if (
+          entry.target === this.portfolioRef &&
+          !this.animatePortfolio
+        ) {
           this.animatePortfolio = true;
         } else if (entry.target === this.contactRef) {
           this.animateContact = true;
-        } else {
-          this.animateOutro = true;
         }
       });
     }, options);
