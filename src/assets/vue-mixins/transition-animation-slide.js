@@ -17,6 +17,7 @@ export const transitionSlide = {
       initialValue = e.style.transform.slice(11, p1);
       // Prevent animation on small screen sizes
       if (window.innerWidth < 1000) {
+        e.style.transform = `translate${axis}(0px)`;
         return;
       }
       // Assigns the number sign and makes initalValue an absolute value

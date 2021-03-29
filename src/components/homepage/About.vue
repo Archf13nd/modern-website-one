@@ -56,30 +56,30 @@
     <div class="outro">
       <div class="outro-text outro-text--1" ref="outroOne">
         <div class="headings">
-          <transition
-            :css="false"
-            @enter="enter"
-            :style="{ transform: 'translateX(300px)' }"
-          >
-            <h3 v-show="animateOutro" class="headings__section-title">
+          <transition :css="false" @enter="enter">
+            <h3
+              v-show="animateOutro"
+              :style="{ transform: 'translateX(300px)' }"
+              class="headings__section-title"
+            >
               Advantages
             </h3>
           </transition>
-          <transition
-            :css="false"
-            @enter="enter"
-            :style="{ transform: 'translateX(-300px)' }"
-          >
-            <h1 v-show="animateOutro" class="headings__title">
+          <transition :css="false" @enter="enter">
+            <h1
+              v-show="animateOutro"
+              :style="{ transform: 'translateX(300px)' }"
+              class="headings__title"
+            >
               Working on exclusive projects
             </h1>
           </transition>
-          <transition
-            :css="false"
-            @enter="enter"
-            :style="{ transform: 'translateX(300px)' }"
-          >
-            <div v-show="animateOutro" class="headings__underline"></div>
+          <transition :css="false" @enter="enter">
+            <div
+              v-show="animateOutro"
+              :style="{ transform: 'translateX(300px)' }"
+              class="headings__underline"
+            ></div>
           </transition>
         </div>
         <p>

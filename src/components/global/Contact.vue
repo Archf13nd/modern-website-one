@@ -80,6 +80,7 @@ export default {
   }
 
   &__info {
+    height: min-content;
     & h1 {
       font-size: 4em;
     }
@@ -88,8 +89,7 @@ export default {
   &__form {
     display: flex;
     flex-direction: column;
-    flex: 1 0 400px;
-    padding-right: 10rem;
+    flex: 1 0 calc(100% - 600px);
 
     & > * {
       font-family: $font-family-text;
@@ -121,9 +121,9 @@ export default {
 .contact__info {
   display: flex;
   flex-direction: column;
-  flex: 0 0 400px;
-  height: 60rem;
+  flex: 0 1 400px;
   padding-right: 4rem;
+  margin-bottom: 3rem;
 
   & > ul {
     list-style: none;
