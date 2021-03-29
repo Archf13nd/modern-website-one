@@ -20,37 +20,39 @@
       necessitatibus maxime voluptatem inventore quos corrupti incidunt
       molestias? Dolore exercitationem sunt magni minus eveniet?
     </the-type-box>
+
     <div class="cards" ref="cardsRef">
-      <transition
-        :css="false"
-        @enter="enter"
-        :style="{ transform: 'translateX(-300px)' }"
-      >
-        <div v-show="animateCards" class="cards__card cards__card--1">
+      <transition :css="false" @enter="enter">
+        <div
+          v-show="animateCards"
+          :style="{ transform: 'translateX(-300px)' }"
+          class="cards__card cards__card--1"
+        >
           <h1>Hello</h1>
         </div>
       </transition>
 
-      <transition
-        :css="false"
-        @enter="enter"
-        :style="{ transform: 'translateY(-300px)' }"
-      >
-        <div v-show="animateCards" class="cards__card cards__card--2">
+      <transition :css="false" @enter="enter">
+        <div
+          v-show="animateCards"
+          :style="{ transform: 'translateY(-300px)' }"
+          class="cards__card cards__card--2"
+        >
           <h1>Greetings</h1>
         </div>
       </transition>
 
-      <transition
-        :css="false"
-        @enter="enter"
-        :style="{ transform: 'translateX(300px)' }"
-      >
-        <div v-show="animateCards" class="cards__card cards__card--3">
+      <transition :css="false" @enter="enter">
+        <div
+          v-show="animateCards"
+          :style="{ transform: 'translateX(300px)' }"
+          class="cards__card cards__card--3"
+        >
           <h1>Hi</h1>
         </div>
       </transition>
     </div>
+
     <div class="outro">
       <div class="outro-text outro-text--1" ref="outroOne">
         <div class="headings">
@@ -110,13 +112,14 @@ import TheTypeBox from "../UI/TypeBox.vue";
 import { transitionSlide } from "../../assets/vue-mixins/transition-animation-slide.js";
 export default {
   mixins: [transitionSlide],
+  emits: ["aboutRef", "outroRef", "cardsRef"],
   props: ["animateAbout", "animateOutro", "animateCards"],
   components: {
     TheTypeBox,
   },
-  data() {
-    return { active: false };
-  },
+  // data() {
+  //   return { active: false };
+  // },
   methods: {},
   computed: {
     isAnimate() {
@@ -135,6 +138,65 @@ export default {
 <style lang="scss" scoped>
 .about {
   @include pageGrid;
+}
+
+.cards {
+  --card-width: 349px;
+  --card-spacing: 6rem;
+  width: 100%;
+  min-height: 564px;
+  grid-column: 1 / 4;
+  place-self: center;
+
+  display: flex;
+  // flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-around;
+  z-index: 3;
+  // &:nth-child(even) {
+  //   margin-left: 6rem;
+  //   margin-right: 6rem;
+  // }
+  @media screen and (min-width: 1150px) {
+    width: calc(var(--card-width) * 3 + calc(var(--card-spacing) * 2));
+    flex-direction: row;
+  }
+
+  &__card {
+    width: 349px;
+    height: 564px;
+    background: #000;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    margin: 3rem 2rem;
+
+    & > h1 {
+      color: $color-white;
+      margin-bottom: 10rem;
+      transition: $transition-default;
+
+      &:hover {
+        color: $color-primary;
+      }
+    }
+
+    &--1 {
+      background: center / 180% no-repeat
+        url("https://cdn.pixabay.com/photo/2018/10/22/11/51/lava-3765142_960_720.jpg");
+    }
+    &--2 {
+      background: center / 280% no-repeat
+        url("https://cdn.pixabay.com/photo/2016/08/26/12/58/universe-1622107_960_720.jpg")
+        #000;
+    }
+    &--3 {
+      background: center / 260% no-repeat
+        url("https://cdn.pixabay.com/photo/2019/05/09/16/00/fantasy-4191425_960_720.jpg")
+        #000;
+    }
+  }
 }
 
 .article {
@@ -256,65 +318,6 @@ export default {
   &:hover {
     background: $color-primary;
     color: $color-white;
-  }
-}
-
-.cards {
-  --card-width: 349px;
-  --card-spacing: 6rem;
-  width: 100%;
-  min-height: 564px;
-  grid-column: 1 / 4;
-  place-self: center;
-
-  display: flex;
-  // flex-direction: row;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: space-around;
-  z-index: 3;
-  // &:nth-child(even) {
-  //   margin-left: 6rem;
-  //   margin-right: 6rem;
-  // }
-  @media screen and (min-width: 1150px) {
-    width: calc(var(--card-width) * 3 + calc(var(--card-spacing) * 2));
-    flex-direction: row;
-  }
-
-  &__card {
-    width: 349px;
-    height: 564px;
-    background: #000;
-    display: flex;
-    justify-content: center;
-    align-items: flex-end;
-    margin: 3rem 2rem;
-
-    & > h1 {
-      color: $color-white;
-      margin-bottom: 10rem;
-      transition: $transition-default;
-
-      &:hover {
-        color: $color-primary;
-      }
-    }
-
-    &--1 {
-      background: center / 180% no-repeat
-        url("https://cdn.pixabay.com/photo/2018/10/22/11/51/lava-3765142_960_720.jpg");
-    }
-    &--2 {
-      background: center / 280% no-repeat
-        url("https://cdn.pixabay.com/photo/2016/08/26/12/58/universe-1622107_960_720.jpg")
-        #000;
-    }
-    &--3 {
-      background: center / 260% no-repeat
-        url("https://cdn.pixabay.com/photo/2019/05/09/16/00/fantasy-4191425_960_720.jpg")
-        #000;
-    }
   }
 }
 </style>

@@ -54,24 +54,29 @@ export default {
       rootMargin: "0px",
     };
 
-    const observer = new IntersectionObserver((entries) => {
+    const observer = new IntersectionObserver((entries, observer) => {
       entries.forEach((entry) => {
         if (!entry.isIntersecting) {
           return;
         }
         if (entry.target === this.aboutRef) {
           this.animateAbout = true;
-        } else if (entry.target === this.cardsRef && !this.animateCards) {
+          observer.unobserve(entry.target);
+        } else if (entry.target === this.cardsRef) {
           this.animateCards = true;
+          observer.unobserve(entry.target);
         } else if (entry.target === this.outroRef) {
           this.animateOutro = true;
+          observer.unobserve(entry.target);
         } else if (
           entry.target === this.portfolioRef &&
           !this.animatePortfolio
         ) {
           this.animatePortfolio = true;
+          observer.unobserve(entry.target);
         } else if (entry.target === this.contactRef) {
           this.animateContact = true;
+          observer.unobserve(entry.target);
         }
       });
     }, options);

@@ -21,14 +21,14 @@ export default {
   min-height: 10rem;
 }
 
-@keyframes slide-in {
-  from {
-    transform: translateX(-50rem);
-  }
-  to {
-    transform: none;
-  }
-}
+// @keyframes slide-in {
+//   from {
+//     transform: translateX(-50rem);
+//   }
+//   to {
+//     transform: none;
+//   }
+// }
 
 // @keyframes slideLeft {
 //   from {

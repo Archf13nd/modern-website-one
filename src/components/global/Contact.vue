@@ -3,18 +3,30 @@
     <div class="contact__wrapper">
       <div class="contact__info">
         <div class="headings article__headings">
-          <transition :css="false" @enter="enter($event, 300)">
-            <h3 v-if="animateContact" class="headings__section-title">
+          <transition :css="false" @enter="enter">
+            <h3
+              v-show="animateContact"
+              :style="{ transform: 'translateX(300px)' }"
+              class="headings__section-title"
+            >
               Let's get in touch
             </h3>
           </transition>
-          <transition :css="false" @enter="enter($event, -300)">
-            <h1 v-if="animateContact" class="titles headings__title">
+          <transition :css="false" @enter="enter">
+            <h1
+              v-show="animateContact"
+              :style="{ transform: 'translateX(-300px)' }"
+              class="titles headings__title"
+            >
               Contact Details
             </h1>
           </transition>
-          <transition :css="false" @enter="enter($event, 300)">
-            <div v-if="animateContact" class="headings__underline"></div>
+          <transition :css="false" @enter="enter">
+            <div
+              v-show="animateContact"
+              :style="{ transform: 'translateX(300px)' }"
+              class="headings__underline"
+            ></div>
           </transition>
         </div>
         <ul>
@@ -47,6 +59,7 @@
 import { transitionSlide } from "../../assets/vue-mixins/transition-animation-slide.js";
 export default {
   mixins: [transitionSlide],
+  emits: ["contactRef"],
   props: ["animateContact"],
   mounted() {
     this.$emit("contactRef", this.$refs.contact);
