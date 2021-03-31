@@ -1,19 +1,19 @@
 <template>
-  <the-header></the-header>
-  <the-homepage></the-homepage>
-  <the-footer></the-footer>
+  <div id="app" ref="theApp">
+    <the-header></the-header>
+    <router-view></router-view>
+    <the-footer></the-footer>
+  </div>
 </template>
 
 <script>
 import TheHeader from "./components/UI/Header.vue";
-import TheHomepage from "./pages/Homepage.vue";
 import TheFooter from "./components/UI/Footer.vue";
 
 export default {
   name: "App",
   components: {
     TheHeader,
-    TheHomepage,
     TheFooter,
   },
 };
