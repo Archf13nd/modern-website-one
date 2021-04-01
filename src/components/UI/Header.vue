@@ -1,6 +1,6 @@
 <template>
   <header>
-    <div class="logo">LOGO</div>
+    <div class="logo">Logo</div>
     <ul class="nav">
       <li class="nav__item"><router-link to="/">Home</router-link></li>
       <li class="nav__item"><router-link to="/blog">Blog</router-link></li>
@@ -19,11 +19,14 @@ header {
 a {
   font-size: 1rem;
 }
+.logo {
+  font-size: 2em;
+}
 .nav {
   list-style: none;
   display: flex;
   &__item {
-    margin: 1rem;
+    margin: 1rem 2rem;
     font-weight: bold;
     transition: $transition-default;
     color: $color-black;

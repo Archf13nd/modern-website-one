@@ -54,7 +54,11 @@ p {
   display: block;
   --color-border: rgba(0, 0, 0, 0.253);
   width: 100%;
-  padding-right: 5rem;
+  padding-top: 5rem;
+  @media screen and (min-width: 800px) {
+    padding-right: 5rem;
+    padding-top: 0rem;
+  }
   padding-bottom: 6rem;
   margin-bottom: 3rem;
 
@@ -154,6 +158,7 @@ p {
 img {
   margin: 2rem 2rem 0 0;
   width: 75%;
+  min-width: 300px;
   height: auto;
   border-radius: 5px;
 }

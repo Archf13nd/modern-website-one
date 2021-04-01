@@ -132,7 +132,7 @@ p {
 .blog-article {
   --color-border: rgba(0, 0, 0, 0.253);
   width: 100%;
-  padding-right: 5rem;
+  padding: 5rem;
 
   &__title {
     font-size: 4em;
@@ -148,11 +148,13 @@ p {
 
 .quote {
   font-size: 1.5em;
-  padding: 4rem;
   margin: 3rem 0;
   border-bottom: 1px solid var(--color-border);
   border-top: 1px solid var(--color-border);
 
+  @media screen and (min-width: 800px) {
+    padding: 4rem;
+  }
   & p {
     margin: 0;
     padding: 0;
@@ -245,12 +247,16 @@ p {
 
 img {
   margin: 2rem 2rem 0 0;
-  width: 75%;
+  width: 100%;
   height: auto;
   border-radius: 5px;
 }
-
-.float {
-  float: left;
+@media screen and (min-width: 800px) {
+  .float {
+    float: left;
+  }
+  img {
+    width: 75%;
+  }
 }
 </style>
