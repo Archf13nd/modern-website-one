@@ -59,11 +59,26 @@
       <p>{{ blog.author }}</p>
     </div>
     <div class="blog-navigation">
-      <div class="arrow">♦</div>
-      <div>
-        <h4>Previous</h4>
-        <router-link to="/blog/4">The power of AI</router-link>
+      <div v-if="getPreviousBlog" class="blog-navigation--prev">
+        <div class="arrow">♦</div>
+        <div>
+          <h4>Previous</h4>
+          <router-link :to="`/blog/${getPreviousBlogId}`">{{
+            getPreviousBlog
+          }}</router-link>
+        </div>
       </div>
+      <div v-else></div>
+      <div v-if="getNextBlog" class="blog-navigation--next">
+        <div>
+          <h4>Next</h4>
+          <router-link :to="`/blog/${getNextBlogId}`">{{
+            getNextBlog
+          }}</router-link>
+        </div>
+        <div class="arrow">♦</div>
+      </div>
+      <div v-else></div>
     </div>
   </section>
 </template>
@@ -74,6 +89,24 @@ export default {
   computed: {
     blog() {
       return this.blogs[+this.$route.params.id];
+    },
+    getPreviousBlog() {
+      return +this.$route.params.id !== 0
+        ? this.blogs[+this.$route.params.id - 1].title
+        : null;
+    },
+    getPreviousBlogId() {
+      return +this.$route.params.id !== 0 ? this.$route.params.id - 1 : null;
+    },
+    getNextBlog() {
+      return +this.$route.params.id !== this.blogs.length - 1
+        ? this.blogs[+this.$route.params.id + 1].title
+        : null;
+    },
+    getNextBlogId() {
+      return +this.$route.params.id !== this.blogs.length - 1
+        ? +this.$route.params.id + 1
+        : null;
     },
   },
   mounted() {
@@ -156,37 +189,57 @@ p {
 }
 
 .blog-navigation {
-  padding: 4rem 0;
-  border-bottom: 1px solid var(--color-border);
   display: flex;
-  align-items: center;
-  transition: $transition-default;
+  justify-content: space-between;
 
-  & > .arrow {
-    margin-right: 2rem;
-  }
+  &--next,
+  &--prev {
+    padding: 4rem 0;
+    border-bottom: 1px solid var(--color-border);
+    display: flex;
+    align-items: center;
+    transition: $transition-default;
 
-  & h4 {
-    color: $color-primary;
-    font-size: 1.7em;
-    margin: 0.5rem 0;
-  }
+    & h4 {
+      color: $color-primary;
+      width: min-content;
+      font-size: 1.7em;
+      margin: 0.5rem 0;
+    }
 
-  & a {
-    display: block;
-    color: $color-black;
-    font-size: 2em;
-    font-weight: bold;
-    max-width: 30rem;
-    text-transform: uppercase;
+    & a {
+      display: block;
+      color: $color-black;
+      font-size: 2em;
+      font-weight: bold;
+      max-width: 30rem;
+      text-transform: uppercase;
+
+      &:hover {
+        color: $color-primary;
+      }
+    }
 
     &:hover {
       color: $color-primary;
     }
   }
+  &--next {
+    & > .arrow {
+      margin-left: 2rem;
+    }
+    & h4 {
+      margin-left: auto;
+    }
+    & a {
+      text-align: end;
+    }
+  }
 
-  &:hover {
-    color: $color-primary;
+  &--prev {
+    & > .arrow {
+      margin-right: 2rem;
+    }
   }
 }
 

@@ -1,7 +1,12 @@
 <template>
   <div class="side-nav">
     <div class="search">
-      <input type="text" placeholder="Enter Keyword Search" /><span>
+      <input
+        type="text"
+        @input="sendSearchInput"
+        v-model="searchInput"
+        placeholder="Enter Keyword Search"
+      /><span>
         <div class="search__icon"></div>
       </span>
     </div>
@@ -26,6 +31,17 @@
 <script>
 export default {
   props: ["recentlyVisited"],
+  date() {
+    return {
+      searchInput: "",
+    };
+  },
+  methods: {
+    sendSearchInput() {
+      console.log(this.searchInput);
+      this.$emit("searchInput", this.searchInput);
+    },
+  },
 };
 </script>
 

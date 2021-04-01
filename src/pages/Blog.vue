@@ -1,7 +1,13 @@
 <template>
   <div class="blog">
-    <router-view :blogs="blogs" @lastVisitedBlog="handleVisit"></router-view>
-    <the-side-nav :recentlyVisited="recentlyVisited"></the-side-nav>
+    <router-view
+      :blogs="filteredBlogs"
+      @lastVisitedBlog="handleVisit"
+    ></router-view>
+    <the-side-nav
+      @searchInput="filter = $event"
+      :recentlyVisited="recentlyVisited"
+    ></the-side-nav>
   </div>
 </template>
 
@@ -15,11 +21,20 @@ export default {
   },
   data() {
     return {
+      filter: "",
       recentlyVisited: [],
       totalVisited: 1,
     };
   },
+  computed: {
+    filteredBlogs() {
+      return this.blogs.filter((blog) => {
+        return blog.title.toLowerCase().includes(this.filter.toLowerCase());
+      });
+    },
+  },
   methods: {
+    filterBlogs() {},
     handleVisit(e) {
       if (!this.recentlyVisited.find((item) => item.id === e.id)) {
         console.log(this.recentlyVisited.length);
