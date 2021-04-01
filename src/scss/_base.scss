@@ -5,19 +5,7 @@
 
 // ----------- Layout ----------------------------------------------------------------
 
-// Grid for each page
-@mixin pageGrid {
-  @media screen and (min-width: 700px) {
-    position: relative;
-    width: 100%;
-    display: grid;
-    grid:
-      repeat(auto-fill, minmax(0, min-content)) / minmax(0, 1fr)
-      minmax(auto, 1080px)
-      minmax(0, 1fr);
-  }
-}
-
+$margin-section-top: 2rem;
 @media screen and (min-width: 1600px) {
   $margin-section-top: 13rem;
 }
@@ -26,19 +14,37 @@ $section-padding-top: 10rem;
 // Affected by scrollbar. I do a lot of math and if you change the scrollbar size you need to reflect that here.
 // Width in px but don't add px to number. I.e. If scrollbar 18px, 1920 - 18 means value should be 1902
 $body-width: 1902;
+$width-content: 1080px;
 
 // ----------- -------COLOR
-$color-primary: rgb(113, 193, 199);
+$color-primary: rgba(35, 187, 85, 0.89);
+$color-text-primary: rgb(100, 100, 100);
+$color-title-primary: rgb(63, 62, 62);
 $color-black: #000;
 $color-white: #fff;
 $color-text: rgba(0, 0, 0, 0.8);
+
+$color-border-primary: rgba(0, 0, 0, 0.199);
+
+// Grid for each page
+@mixin pageGrid {
+  @media screen and (min-width: 700px) {
+    position: relative;
+    width: 100%;
+    display: grid;
+    grid:
+      repeat(auto-fill, minmax(0, min-content)) / minmax(0, 1fr)
+      minmax(auto, $width-content)
+      minmax(0, 1fr);
+  }
+}
 
 //----------- FONT ----------------------------------------------------------------
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap");
 $font-family-text: "Montserrat", sans-serif;
 $font-family-header: "Lato", sans-serif;
-$font-size-primary: 2em;
+$font-size-primary: 2.25em;
 $font-size-header--sm: 2em;
 $font-size-header--md: 5em;
 $font-size-header--lg: 6em;
@@ -48,8 +54,20 @@ a {
   font-size: $font-size-primary;
   letter-spacing: 0.2px;
   word-spacing: 2px;
-  line-height: 3.5rem;
-  color: $color-text;
+  line-height: 1.9;
+}
+
+p {
+  color: $color-text-primary;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: $color-title-primary;
 }
 
 h1 {
@@ -116,9 +134,22 @@ $border-radius: 10px;
   text-transform: uppercase;
   font-weight: bold;
   color: $color-white;
+  font-size: 1.7em;
 
   &:hover {
     color: $color-primary;
+  }
+}
+
+.link {
+  color: $color-primary;
+
+  &:hover {
+    color: $color-black;
+  }
+
+  &:visited {
+    color: $color-black;
   }
 }
 
@@ -169,6 +200,11 @@ caption {
 a {
   cursor: pointer;
   text-decoration: none;
+  font-size: 1em;
+
+  &:visited {
+    color: inherit;
+  }
 }
 
 img {
