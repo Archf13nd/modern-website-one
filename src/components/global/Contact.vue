@@ -114,6 +114,7 @@ export default {
       border: none;
       background: $color-primary;
       border-radius: 5px;
+      cursor: pointer;
     }
   }
 }

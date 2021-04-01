@@ -66,13 +66,13 @@
             </h3>
           </transition>
           <transition :css="false" @enter="enter">
-            <h1
+            <h2
               v-show="animateOutro"
-              :style="{ transform: 'translateX(300px)' }"
+              :style="{ transform: 'translateX(-300px)' }"
               class="headings__title"
             >
               Working on exclusive projects
-            </h1>
+            </h2>
           </transition>
           <transition :css="false" @enter="enter">
             <div
@@ -93,7 +93,7 @@
       <div class="outro-text outro-text--2">
         <div class="headings">
           <h3 class="headings__section-title">Advantages</h3>
-          <h1 class="headings__title">Working on exclusive projects</h1>
+          <h2 class="headings__title">Working on exclusive projects</h2>
           <div class="headings__underline"></div>
         </div>
         <p>
@@ -246,8 +246,12 @@ export default {
 
     &--1 {
       @media screen and (min-width: 600px) {
-        color: $color-white;
         background: $color-black;
+
+        & h2,
+        & h3 {
+          color: $color-white;
+        }
 
         & > p {
           color: $color-white;
@@ -280,7 +284,7 @@ export default {
         color: $color-black;
         background: center / cover no-repeat
           url("https://cdn.pixabay.com/photo/2016/12/17/20/05/building-1914309_960_720.jpg")
-          rgba(255, 145, 0, 0.644);
+          rgba(211, 192, 150, 0.897);
         background-blend-mode: screen;
       }
       @media screen and (min-width: 1000px) {
@@ -297,6 +301,12 @@ export default {
         align-items: flex-end;
         position: absolute;
         bottom: 23rem;
+
+        & h2,
+        & h3,
+        & p {
+          color: $color-black;
+        }
 
         & > * {
           width: 67%;
