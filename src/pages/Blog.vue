@@ -1,10 +1,8 @@
 <template>
   <div class="blog" @click="closeMenu">
-    <div
-      class="menu"
-      @click="openMenu"
-      :class="{ 'menu--open': menuOpen }"
-    ></div>
+    <div class="menu" @click="openMenu">
+      <div class="menu__bar" :class="{ 'menu--open': menuOpen }"></div>
+    </div>
     <router-view
       :blogs="filteredBlogs"
       @lastVisitedBlog="handleVisit"
@@ -41,11 +39,13 @@ export default {
     },
   },
   methods: {
-    openMenu() {
+    openMenu(e) {
+      console.log(e.target);
       this.menuOpen = true;
     },
-    closeMenu(e) {
-      if (this.menuOpen && e.target.classList[0] !== "menu") {
+    closeMenu() {
+      if (this.menuOpen) {
+        console.log("gi");
         this.menuOpen = false;
       }
     },
@@ -83,42 +83,50 @@ export default {
 
   .menu {
     position: relative;
-    top: 3rem;
+    top: 2rem;
     margin-left: auto;
     margin-right: 2rem;
-    width: 6rem;
-    height: 1rem;
-    background: #000;
+    width: 5rem;
+    height: 5rem;
+    background: $color-primary;
+    border-radius: 5px;
     cursor: pointer;
 
-    &::before {
-      content: "";
-      position: absolute;
-      width: 6rem;
-      height: 1rem;
-      top: -2rem;
-      background: #000;
-    }
-    &::after {
-      content: "";
-      position: absolute;
-      width: 6rem;
-      height: 1rem;
-      top: 2rem;
-      background: #000;
+    &__bar {
+      position: relative;
+      top: 2.3rem;
+      left: 0.75rem;
+      width: 3.5rem;
+      height: 0.5rem;
+      background: $color-black;
+
+      &::before {
+        content: "";
+        position: absolute;
+        width: inherit;
+        height: inherit;
+        top: -1.2rem;
+        background: $color-black;
+      }
+      &::after {
+        content: "";
+        position: absolute;
+        width: inherit;
+        height: inherit;
+        top: 1.1rem;
+        background: $color-black;
+      }
     }
   }
 
   .menu--open {
-    &:hover {
-      background: rgba(0, 0, 0, 0);
-    }
+    background: rgba(0, 0, 0, 0);
 
-    &:hover::after {
-      transform: translateY(-2rem) rotateZ(45deg);
+    &::after {
+      transform: translateY(-1.1rem) rotateZ(45deg);
     }
-    &:hover::before {
-      transform: translateY(2rem) rotateZ(-45deg);
+    &::before {
+      transform: translateY(1.2rem) rotateZ(-45deg);
     }
   }
 }
@@ -135,7 +143,6 @@ export default {
 
 .blog-cards {
   width: 100%;
-  padding-right: 5rem;
   //   background: #000;
   flex: 0 0 70%;
 }
