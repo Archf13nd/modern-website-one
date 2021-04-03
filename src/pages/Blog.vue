@@ -39,14 +39,19 @@ export default {
     },
   },
   methods: {
-    openMenu(e) {
-      console.log(e.target);
-      this.menuOpen = true;
-    },
-    closeMenu() {
-      if (this.menuOpen) {
-        console.log("gi");
+    closeMenu(e) {
+      if (
+        e.target.classList[0] !== "menu" &&
+        e.target.classList[0] !== "menu__bar" &&
+        this.menuOpen
+      ) {
+        console.log(e.target.classList[0]);
         this.menuOpen = false;
+      }
+    },
+    openMenu() {
+      if (!this.menuOpen) {
+        this.menuOpen = true;
       }
     },
     handleVisit(e) {
