@@ -4,27 +4,36 @@
       <transition
         :css="false"
         @enter="enter"
-        :style="{ transform: 'translateX(300px)' }"
+        :style="{ transform: `translateX(${startDistance}px)` }"
       >
-        <h3 v-if="animateTrue" class="headings__section-title">
+        <h3
+          v-if="animateTrue || smallScreenTrue"
+          class="headings__section-title"
+        >
           <slot class="happy" name="h3"></slot>
         </h3>
       </transition>
       <transition
         :css="false"
         @enter="enter"
-        :style="{ transform: 'translateX(-300px)' }"
+        :style="{ transform: `translateX(-${startDistance}px)` }"
       >
-        <h1 v-if="animateTrue" class="titles headings__title">
+        <h1
+          v-if="animateTrue || smallScreenTrue"
+          class="titles headings__title"
+        >
           <slot name="h1"></slot>
         </h1>
       </transition>
       <transition
         :css="false"
         @enter="enter"
-        :style="{ transform: 'translateX(300px)' }"
+        :style="{ transform: `translateX(${startDistance}px)` }"
       >
-        <div v-if="animateTrue" class="headings__underline"></div>
+        <div
+          v-if="animateTrue || smallScreenTrue"
+          class="headings__underline"
+        ></div>
       </transition>
     </div>
     <div class="article__paragraphs">
@@ -44,6 +53,12 @@ export default {
   props: ["animate"],
   mixins: [transitionSlide],
   computed: {
+    smallScreenTrue() {
+      return window.screen.width > 1200 ? false : true;
+    },
+    startDistance() {
+      return window.screen.width > 1200 ? 300 : 0;
+    },
     animateTrue() {
       return this.animate;
     },

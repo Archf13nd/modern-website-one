@@ -24,8 +24,8 @@
     <div class="cards" ref="cardsRef">
       <transition :css="false" @enter="enter">
         <div
-          v-show="animateCards"
-          :style="{ transform: 'translateX(-300px)' }"
+          v-show="animateCards || smallScreenTrue"
+          :style="{ transform: `translateX(-${startDistance}px)` }"
           class="cards__card cards__card--1"
         >
           <h1>Hello</h1>
@@ -34,8 +34,8 @@
 
       <transition :css="false" @enter="enter">
         <div
-          v-show="animateCards"
-          :style="{ transform: 'translateY(-300px)' }"
+          v-show="animateCards || smallScreenTrue"
+          :style="{ transform: `translateY(-${startDistance}px)` }"
           class="cards__card cards__card--2"
         >
           <h1>Greetings</h1>
@@ -44,8 +44,8 @@
 
       <transition :css="false" @enter="enter">
         <div
-          v-show="animateCards"
-          :style="{ transform: 'translateX(300px)' }"
+          v-show="animateCards || smallScreenTrue"
+          :style="{ transform: `translateX(${startDistance}px)` }"
           class="cards__card cards__card--3"
         >
           <h1>Hi</h1>
@@ -58,8 +58,8 @@
         <div class="headings">
           <transition :css="false" @enter="enter">
             <h3
-              v-show="animateOutro"
-              :style="{ transform: 'translateX(300px)' }"
+              v-show="animateOutro || smallScreenTrue"
+              :style="{ transform: `translateX(${startDistance}px)` }"
               class="headings__section-title"
             >
               Advantages
@@ -67,8 +67,8 @@
           </transition>
           <transition :css="false" @enter="enter">
             <h2
-              v-show="animateOutro"
-              :style="{ transform: 'translateX(-300px)' }"
+              v-show="animateOutro || smallScreenTrue"
+              :style="{ transform: `translateX(-${startDistance}px)` }"
               class="headings__title"
             >
               Working on exclusive projects
@@ -76,8 +76,8 @@
           </transition>
           <transition :css="false" @enter="enter">
             <div
-              v-show="animateOutro"
-              :style="{ transform: 'translateX(300px)' }"
+              v-show="animateOutro || smallScreenTrue"
+              :style="{ transform: `translateX(${startDistance}px)` }"
               class="headings__underline"
             ></div>
           </transition>
@@ -122,6 +122,12 @@ export default {
   // },
   methods: {},
   computed: {
+    smallScreenTrue() {
+      return window.screen.width > 1200 ? false : true;
+    },
+    startDistance() {
+      return window.screen.width > 1200 ? 300 : 0;
+    },
     isAnimate() {
       console.log(this.animate, "Oh");
       return this.animate;

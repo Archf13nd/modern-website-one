@@ -5,8 +5,8 @@
         <div class="headings article__headings">
           <transition :css="false" @enter="enter">
             <h3
-              v-show="animateContact"
-              :style="{ transform: 'translateX(300px)' }"
+              v-show="animateContact || smallScreenTrue"
+              :style="{ transform: `translateX(${startDistance}px)` }"
               class="headings__section-title"
             >
               Let's get in touch
@@ -14,8 +14,8 @@
           </transition>
           <transition :css="false" @enter="enter">
             <h1
-              v-show="animateContact"
-              :style="{ transform: 'translateX(-300px)' }"
+              v-show="animateContact || smallScreenTrue"
+              :style="{ transform: `translateX(-${startDistance}px)` }"
               class="titles headings__title"
             >
               Contact Details
@@ -23,8 +23,8 @@
           </transition>
           <transition :css="false" @enter="enter">
             <div
-              v-show="animateContact"
-              :style="{ transform: 'translateX(300px)' }"
+              v-show="animateContact || smallScreenTrue"
+              :style="{ transform: `translateX(${startDistance}px)` }"
               class="headings__underline"
             ></div>
           </transition>
@@ -61,6 +61,14 @@ export default {
   mixins: [transitionSlide],
   emits: ["contactRef"],
   props: ["animateContact"],
+  computed: {
+    smallScreenTrue() {
+      return window.screen.width > 1200 ? false : true;
+    },
+    startDistance() {
+      return window.screen.width > 1200 ? 300 : 0;
+    },
+  },
   mounted() {
     this.$emit("contactRef", this.$refs.contact);
   },
