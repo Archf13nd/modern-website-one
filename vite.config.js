@@ -8,6 +8,8 @@ export default defineConfig({
     globals: true,
   },
   build: {
+    // Outdir is docs for github pages
+    outDir: "./docs",
     sourcemap: true,
   },
   plugins: [vue(), imagetools(), visualizer({ open: true })],
