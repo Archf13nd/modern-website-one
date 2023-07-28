@@ -4,11 +4,13 @@ import vue from "@vitejs/plugin-vue";
 import { visualizer } from "rollup-plugin-visualizer";
 import { imagetools } from "vite-imagetools";
 export default defineConfig({
+  base: "/science-lab",
   test: {
     globals: true,
   },
   build: {
     // Outdir is docs for github pages
+
     outDir: "./docs",
     sourcemap: true,
   },
