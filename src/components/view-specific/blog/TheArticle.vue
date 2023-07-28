@@ -4,15 +4,11 @@
     <div class="blog-article__info">
       <p>
         By
-        <span
-          ><a class="link">{{ blog.author }}</a></span
-        >
+        <span><a class="link">{{ blog.author }}</a></span>
       </p>
       <p>
         In
-        <span
-          ><a class="link">{{ blog.category }}</a></span
-        >
+        <span><a class="link">{{ blog.category }}</a></span>
       </p>
       <p>
         Posted
@@ -52,10 +48,7 @@
     </div>
 
     <div class="author">
-      <img
-        src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png"
-        alt=""
-      />
+      <img src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png" alt="" />
       <p>{{ blog.author }}</p>
     </div>
     <div class="blog-navigation">
@@ -119,6 +112,4 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
-@import "../../scss/_blog.scss";
-</style>
+<style lang="scss" scoped></style>

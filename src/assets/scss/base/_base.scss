@@ -1,0 +1,36 @@
+// ----------- ROOT ----------------------------------------------------------------
+:root {
+  font-size: 50%;
+}
+
+// ----------- Layout ----------------------------------------------------------------
+
+$margin-section-top: 2rem;
+@media screen and (min-width: 1600px) {
+  $margin-section-top: 13rem;
+}
+$height-header: 10rem;
+$section-padding-top: 10rem;
+// Affected by scrollbar. I do a lot of math and if you change the scrollbar size you need to reflect that here.
+// Width in px but don't add px to number. I.e. If scrollbar 18px, 1920 - 18 means value should be 1902
+$body-width: 1902;
+$width-content: 1080px;
+
+// Grid for each page
+@mixin pageGrid {
+  @media screen and (min-width: 700px) {
+    position: relative;
+    width: 100%;
+    display: grid;
+    grid:
+      repeat(auto-fill, minmax(0, min-content)) / minmax(0, 1fr)
+      minmax(auto, $width-content)
+      minmax(0, 1fr);
+  }
+}
+
+// ----------- Animations ----------------------------------------------------------------
+$transition-default: all 0.2s ease-in;
+
+// ----------- Borders ----------------------------------------------------------------
+$border-radius: 10px;

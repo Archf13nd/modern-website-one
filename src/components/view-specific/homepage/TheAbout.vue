@@ -23,31 +23,22 @@
 
     <div class="cards" ref="cardsRef">
       <transition :css="false" @enter="enter">
-        <div
-          v-show="animateCards || smallScreenTrue"
-          :style="{ transform: `translateX(-${startDistance}px)` }"
-          class="cards__card cards__card--1"
-        >
+        <div v-show="animateCards || smallScreenTrue" :style="{ transform: `translateX(-${startDistance}px)` }"
+          class="cards__card cards__card--1">
           <h1>Hello</h1>
         </div>
       </transition>
 
       <transition :css="false" @enter="enter">
-        <div
-          v-show="animateCards || smallScreenTrue"
-          :style="{ transform: `translateY(-${startDistance}px)` }"
-          class="cards__card cards__card--2"
-        >
+        <div v-show="animateCards || smallScreenTrue" :style="{ transform: `translateY(-${startDistance}px)` }"
+          class="cards__card cards__card--2">
           <h1>Greetings</h1>
         </div>
       </transition>
 
       <transition :css="false" @enter="enter">
-        <div
-          v-show="animateCards || smallScreenTrue"
-          :style="{ transform: `translateX(${startDistance}px)` }"
-          class="cards__card cards__card--3"
-        >
+        <div v-show="animateCards || smallScreenTrue" :style="{ transform: `translateX(${startDistance}px)` }"
+          class="cards__card cards__card--3">
           <h1>Hi</h1>
         </div>
       </transition>
@@ -57,29 +48,20 @@
       <div class="outro-text outro-text--1" ref="outroOne">
         <div class="headings">
           <transition :css="false" @enter="enter">
-            <h3
-              v-show="animateOutro || smallScreenTrue"
-              :style="{ transform: `translateX(${startDistance}px)` }"
-              class="headings__section-title"
-            >
+            <h3 v-show="animateOutro || smallScreenTrue" :style="{ transform: `translateX(${startDistance}px)` }"
+              class="headings__section-title">
               Advantages
             </h3>
           </transition>
           <transition :css="false" @enter="enter">
-            <h2
-              v-show="animateOutro || smallScreenTrue"
-              :style="{ transform: `translateX(-${startDistance}px)` }"
-              class="headings__title"
-            >
+            <h2 v-show="animateOutro || smallScreenTrue" :style="{ transform: `translateX(-${startDistance}px)` }"
+              class="headings__title">
               Working on exclusive projects
             </h2>
           </transition>
           <transition :css="false" @enter="enter">
-            <div
-              v-show="animateOutro || smallScreenTrue"
-              :style="{ transform: `translateX(${startDistance}px)` }"
-              class="headings__underline"
-            ></div>
+            <div v-show="animateOutro || smallScreenTrue" :style="{ transform: `translateX(${startDistance}px)` }"
+              class="headings__underline"></div>
           </transition>
         </div>
         <p>
@@ -108,8 +90,8 @@
 </template>
 
 <script>
-import TheTypeBox from "../UI/TypeBox.vue";
-import { transitionSlide } from "../../assets/vue-mixins/transition-animation-slide.js";
+import TheTypeBox from "@/components/base/BaseTypeBox.vue";
+import { transitionSlide } from "@/assets/vue-mixins/transition-animation-slide.js";
 export default {
   mixins: [transitionSlide],
   emits: ["aboutRef", "outroRef", "cardsRef"],
@@ -160,6 +142,7 @@ export default {
   align-items: center;
   justify-content: space-around;
   z-index: 3;
+
   // &:nth-child(even) {
   //   margin-left: 6rem;
   //   margin-right: 6rem;
@@ -178,7 +161,7 @@ export default {
     align-items: flex-end;
     margin: 3rem 2rem;
 
-    & > h1 {
+    &>h1 {
       color: $color-white;
       margin-bottom: 10rem;
       transition: $transition-default;
@@ -189,18 +172,15 @@ export default {
     }
 
     &--1 {
-      background: center / 180% no-repeat
-        url("https://cdn.pixabay.com/photo/2018/10/22/11/51/lava-3765142_960_720.jpg");
+      background: center / 180% no-repeat url("https://cdn.pixabay.com/photo/2018/10/22/11/51/lava-3765142_960_720.jpg");
     }
+
     &--2 {
-      background: center / 280% no-repeat
-        url("https://cdn.pixabay.com/photo/2016/08/26/12/58/universe-1622107_960_720.jpg")
-        #000;
+      background: center / 280% no-repeat url("https://cdn.pixabay.com/photo/2016/08/26/12/58/universe-1622107_960_720.jpg") #000;
     }
+
     &--3 {
-      background: center / 260% no-repeat
-        url("https://cdn.pixabay.com/photo/2019/05/09/16/00/fantasy-4191425_960_720.jpg")
-        #000;
+      background: center / 260% no-repeat url("https://cdn.pixabay.com/photo/2019/05/09/16/00/fantasy-4191425_960_720.jpg") #000;
     }
   }
 }
@@ -221,6 +201,7 @@ export default {
   @media screen and (min-width: 1000px) {
     margin-top: 33rem;
   }
+
   & .outro-text {
     width: 90%;
     height: fit-content;
@@ -229,7 +210,7 @@ export default {
     color: $color-black;
     padding: 7rem 5rem 5rem 5rem;
 
-    & > p {
+    &>p {
       margin-top: 3rem;
       margin-bottom: 3rem;
     }
@@ -245,7 +226,7 @@ export default {
       padding: 10rem 5rem 5rem 5rem;
       margin: 5rem auto;
 
-      & > .headings > .headings__title {
+      &>.headings>.headings__title {
         font-size: 6em;
       }
     }
@@ -259,10 +240,11 @@ export default {
           color: $color-white;
         }
 
-        & > p {
+        &>p {
           color: $color-white;
         }
       }
+
       @media screen and (min-width: 1000px) {
         position: relative;
         height: 89rem;
@@ -271,15 +253,17 @@ export default {
         width: calc(calc(1328 / #{$body-width}) * 100%);
         align-items: flex-start;
 
-        & > * {
+        &>* {
           margin-left: 21.686%;
           color: $color-white;
           width: 50.5%;
         }
       }
+
       @media screen and (min-width: 1500px) {
         padding-bottom: 15rem;
-        & > * {
+
+        &>* {
           width: 36.5%;
         }
       }
@@ -288,11 +272,10 @@ export default {
     &--2 {
       @media screen and (min-width: 600px) {
         color: $color-black;
-        background: center / cover no-repeat
-          url("https://cdn.pixabay.com/photo/2016/12/17/20/05/building-1914309_960_720.jpg")
-          rgba(211, 192, 150, 0.897);
+        background: center / cover no-repeat url("https://cdn.pixabay.com/photo/2016/12/17/20/05/building-1914309_960_720.jpg") rgba(211, 192, 150, 0.897);
         background-blend-mode: screen;
       }
+
       @media screen and (min-width: 1000px) {
         right: 0rem;
         color: $color-black;
@@ -314,11 +297,12 @@ export default {
           color: $color-black;
         }
 
-        & > * {
+        &>* {
           width: 67%;
           margin-right: calc(33% - 14rem);
         }
       }
+
       @media screen and (min-width: 1500px) {
         padding-bottom: 22rem;
       }

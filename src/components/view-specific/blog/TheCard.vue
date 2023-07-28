@@ -6,22 +6,18 @@
     <div class="blog-card__info">
       <p>
         By
-        <span
-          ><a class="link">{{ author || "The Author" }}</a></span
-        >
+        <span><a class="link">{{ author || "The Author" }}</a></span>
       </p>
       <p>
         In
-        <span
-          ><a class="link">{{ category || "The Category" }}</a></span
-        >
+        <span><a class="link">{{ category || "The Category" }}</a></span>
       </p>
       <p>
         Posted
         <span>{{ date || "March 30th, 2021" }}</span>
       </p>
     </div>
-    <router-link :to="`/blog/${id}`"><img :src="`${img}`" alt=""/></router-link>
+    <router-link :to="`/blog/${id}`"><img :src="`${img}`" alt="" /></router-link>
 
     <p>
       {{ contentData.paragraphs[0]["paragraph"] }}
@@ -40,6 +36,4 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
-@import "../../scss/_blog.scss";
-</style>
+<style lang="scss" scoped></style>

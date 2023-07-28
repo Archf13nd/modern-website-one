@@ -1,27 +1,15 @@
 <template>
   <the-hero></the-hero>
-  <the-about
-    @aboutRef="aboutRef = $event"
-    @cardsRef="cardsRef = $event"
-    @outroRef="outroRef = $event"
-    :animateAbout="animateAbout"
-    :animateCards="animateCards"
-    :animateOutro="animateOutro"
-  ></the-about>
-  <the-portfolio
-    :animatePortfolio="animatePortfolio"
-    @portfolioRef="portfolioRef = $event"
-  ></the-portfolio>
-  <the-contact-form
-    @contactRef="contactRef = $event"
-    :animateContact="animateContact"
-  ></the-contact-form>
+  <the-about @aboutRef="aboutRef = $event" @cardsRef="cardsRef = $event" @outroRef="outroRef = $event"
+    :animateAbout="animateAbout" :animateCards="animateCards" :animateOutro="animateOutro"></the-about>
+  <the-portfolio :animatePortfolio="animatePortfolio" @portfolioRef="portfolioRef = $event"></the-portfolio>
+  <the-contact-form @contactRef="contactRef = $event" :animateContact="animateContact"></the-contact-form>
 </template>
 <script>
-import TheHero from "../components/homepage/Hero.vue";
-import TheAbout from "../components/homepage/About.vue";
-import ThePortfolio from "../components/homepage/Portfolio.vue";
-import TheContactForm from "../components/global/Contact.vue";
+import TheHero from "../components/view-specific/homepage/TheHero.vue";
+import TheAbout from "../components/view-specific/homepage/TheAbout.vue";
+import ThePortfolio from "../components/view-specific/homepage/ThePortfolio.vue";
+import TheContactForm from "../components/view-specific/homepage/TheContactForm.vue";
 export default {
   data() {
     return {
@@ -89,4 +77,4 @@ export default {
   },
 };
 </script>
-<style lang="scss" scoped></style>
+<style lang="scss"></style>

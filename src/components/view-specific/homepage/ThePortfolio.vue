@@ -15,40 +15,22 @@
     </the-type-box>
     <div class="gallery">
       <div class="gallery__photo">
-        <img
-          src="https://cdn.pixabay.com/photo/2011/12/13/14/31/earth-11015_960_720.jpg"
-          alt=""
-        />
+        <img src="https://cdn.pixabay.com/photo/2011/12/13/14/31/earth-11015_960_720.jpg" alt="" />
       </div>
       <div class="gallery__photo">
-        <img
-          src="https://cdn.pixabay.com/photo/2014/12/27/16/38/planet-581239_960_720.jpg"
-          alt=""
-        />
+        <img src="https://cdn.pixabay.com/photo/2014/12/27/16/38/planet-581239_960_720.jpg" alt="" />
       </div>
       <div class="gallery__photo">
-        <img
-          src="https://cdn.pixabay.com/photo/2011/12/14/12/17/galaxy-11098_960_720.jpg"
-          alt=""
-        />
+        <img src="https://cdn.pixabay.com/photo/2011/12/14/12/17/galaxy-11098_960_720.jpg" alt="" />
       </div>
       <div class="gallery__photo">
-        <img
-          src="https://cdn.pixabay.com/photo/2015/04/25/23/32/wormhole-739872_960_720.png"
-          alt=""
-        />
+        <img src="https://cdn.pixabay.com/photo/2015/04/25/23/32/wormhole-739872_960_720.png" alt="" />
       </div>
       <div class="gallery__photo">
-        <img
-          src="https://cdn.pixabay.com/photo/2011/12/14/12/23/solar-system-11111_960_720.jpg"
-          alt=""
-        />
+        <img src="https://cdn.pixabay.com/photo/2011/12/14/12/23/solar-system-11111_960_720.jpg" alt="" />
       </div>
       <div class="gallery__photo">
-        <img
-          src="https://cdn.pixabay.com/photo/2017/12/23/19/53/lost-places-3035877__340.jpg"
-          alt=""
-        />
+        <img src="https://cdn.pixabay.com/photo/2017/12/23/19/53/lost-places-3035877__340.jpg" alt="" />
       </div>
     </div>
     <a class="button button--portfolio">View more</a>
@@ -56,7 +38,7 @@
 </template>
 
 <script>
-import TheTypeBox from "../UI/TypeBox.vue";
+import TheTypeBox from "@/components/base/BaseTypeBox.vue";
 export default {
   props: ["animatePortfolio"],
   components: {
@@ -94,7 +76,7 @@ export default {
       padding-bottom: 100%;
     }
 
-    & > img {
+    &>img {
       position: absolute;
       height: 100%;
       width: 100%;

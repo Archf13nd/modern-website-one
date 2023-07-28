@@ -1,9 +1,9 @@
 import { createWebHistory, createRouter } from "vue-router";
 
-import Homepage from "../pages/Homepage.vue";
-import Blog from "../pages/Blog.vue";
-import BlogCards from "../components/blog/BlogCards.vue";
-import BlogArticle from "../components/blog/BlogArticle.vue";
+import Homepage from "../views/Homepage.vue";
+import Blog from "../views/Blog.vue";
+import BlogCards from "../components/view-specific/blog/TheCards.vue";
+import BlogArticle from "../components/view-specific/blog/TheArticle.vue";
 
 const routes = [
   {

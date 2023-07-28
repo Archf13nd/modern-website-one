@@ -12,7 +12,7 @@
 .hero {
   width: 100%;
   height: calc(100vh - #{$height-header});
-  background: center/cover no-repeat url("../../assets/img/Hero.jpg");
+  background: center/cover no-repeat url("@/assets/img/Hero.jpg");
 
   display: grid;
   place-items: center;

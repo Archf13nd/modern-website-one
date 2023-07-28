@@ -1,0 +1,66 @@
+// ----------- Reuseable Elements --------------------------------------------------------
+
+// Headings
+
+.headings {
+  position: relative;
+  width: 100%;
+  min-width: min-content;
+  max-height: min-content;
+
+  &__section-title {
+    font-weight: normal;
+    text-transform: uppercase;
+    position: absolute;
+    top: -7rem;
+  }
+
+  &__title {
+    width: 100%;
+    text-transform: uppercase;
+  }
+
+  &__underline {
+    margin-top: 3rem;
+    height: 5px;
+    width: 10rem;
+    background: $color-primary;
+  }
+}
+
+// Underline for title
+
+// Button Default
+.button {
+  display: block;
+  width: 20rem;
+  max-width: 20rem;
+  height: 8rem;
+  max-height: 8rem;
+  background: $color-white;
+  display: grid;
+  place-items: center;
+  border-radius: $border-radius;
+  margin: 0 auto;
+  transition: $transition-default;
+  text-transform: uppercase;
+  font-weight: bold;
+  color: $color-white;
+  font-size: 1.7em;
+
+  &:hover {
+    color: $color-primary;
+  }
+}
+
+.link {
+  color: $color-primary;
+
+  &:hover {
+    color: $color-black;
+  }
+
+  &:visited {
+    color: $color-black;
+  }
+}

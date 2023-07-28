@@ -1,0 +1,57 @@
+// ----------- RESET CSS ----------------------------------------------------------------
+*,
+::before,
+::after {
+  box-sizing: inherit;
+}
+
+body,
+div,
+form,
+fieldset,
+legend,
+label {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: $font-family-text;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+th,
+td {
+  text-align: left;
+  vertical-align: top;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+th,
+td,
+caption {
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  cursor: pointer;
+  text-decoration: none;
+  font-size: 1em;
+
+  &:visited {
+    color: inherit;
+  }
+}
+
+img {
+  border: 0;
+}

@@ -4,34 +4,29 @@
       <div class="contact__info">
         <div class="headings article__headings">
           <transition :css="false" @enter="enter">
-            <h3
-              v-show="animateContact || smallScreenTrue"
-              :style="{ transform: `translateX(${startDistance}px)` }"
-              class="headings__section-title"
-            >
+            <h3 v-show="animateContact || smallScreenTrue" :style="{ transform: `translateX(${startDistance}px)` }"
+              class="headings__section-title">
               Let's get in touch
             </h3>
           </transition>
           <transition :css="false" @enter="enter">
-            <h1
-              v-show="animateContact || smallScreenTrue"
-              :style="{ transform: `translateX(-${startDistance}px)` }"
-              class="titles headings__title"
-            >
+            <h1 v-show="animateContact || smallScreenTrue" :style="{ transform: `translateX(-${startDistance}px)` }"
+              class="titles headings__title">
               Contact Details
             </h1>
           </transition>
           <transition :css="false" @enter="enter">
-            <div
-              v-show="animateContact || smallScreenTrue"
-              :style="{ transform: `translateX(${startDistance}px)` }"
-              class="headings__underline"
-            ></div>
+            <div v-show="animateContact || smallScreenTrue" :style="{ transform: `translateX(${startDistance}px)` }"
+              class="headings__underline"></div>
           </transition>
         </div>
         <ul>
-          <li><p>Phone: 07535158194</p></li>
-          <li><p>E-mail: email@email.com</p></li>
+          <li>
+            <p>Phone: 07535158194</p>
+          </li>
+          <li>
+            <p>E-mail: email@email.com</p>
+          </li>
           <li>
             <p>
               Address: Alexandria, 32 Washingtorn str, 22303
@@ -56,7 +51,7 @@
 </template>
 
 <script>
-import { transitionSlide } from "../../assets/vue-mixins/transition-animation-slide.js";
+import { transitionSlide } from "@/assets/vue-mixins/transition-animation-slide.js";
 export default {
   mixins: [transitionSlide],
   emits: ["contactRef"],
@@ -89,6 +84,7 @@ export default {
 
   &__info {
     height: min-content;
+
     & h1 {
       font-size: 4em;
     }
@@ -99,22 +95,22 @@ export default {
     flex-direction: column;
     flex: 1 0 calc(100% - 600px);
 
-    & > * {
+    &>* {
       font-family: $font-family-text;
       font-size: 2rem;
       padding: 2rem 1rem;
     }
 
-    & > input {
+    &>input {
       height: 4rem;
       margin-bottom: 5rem;
     }
 
-    & > textarea {
+    &>textarea {
       height: 30rem;
     }
 
-    & > button {
+    &>button {
       width: 8rem;
       height: 4rem;
       margin-top: 3rem;
@@ -134,7 +130,7 @@ export default {
   padding-right: 4rem;
   margin-bottom: 3rem;
 
-  & > ul {
+  &>ul {
     list-style: none;
     margin-top: 4rem;
     padding: 0;

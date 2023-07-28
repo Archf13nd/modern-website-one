@@ -3,20 +3,14 @@
     <div class="menu" @click="openMenu">
       <div class="menu__bar" :class="{ 'menu--open': menuOpen }"></div>
     </div>
-    <router-view
-      :blogs="filteredBlogs"
-      @lastVisitedBlog="handleVisit"
-    ></router-view>
-    <the-side-nav
-      :class="{ 'hide-on-small-screens': !menuOpen }"
-      @searchInput="filter = $event"
-      :recentlyVisited="recentlyVisited"
-    ></the-side-nav>
+    <router-view :blogs="filteredBlogs" @lastVisitedBlog="handleVisit"></router-view>
+    <the-side-nav :class="{ 'hide-on-small-screens': !menuOpen }" @searchInput="filter = $event"
+      :recentlyVisited="recentlyVisited"></the-side-nav>
   </div>
 </template>
 
 <script>
-import TheSideNav from "../components/blog/SideNav.vue";
+import TheSideNav from "../components/view-specific/blog/TheSideNav.vue";
 import { tempBlogState } from "../assets/vue-mixins/temp-blog-state.js";
 export default {
   mixins: [tempBlogState],
@@ -80,7 +74,7 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 @media screen and (max-width: 800px) {
   .hide-on-small-screens {
     display: none;
@@ -113,6 +107,7 @@ export default {
         top: -1.2rem;
         background: $color-black;
       }
+
       &::after {
         content: "";
         position: absolute;
@@ -130,6 +125,7 @@ export default {
     &::after {
       transform: translateY(-1.1rem) rotateZ(45deg);
     }
+
     &::before {
       transform: translateY(1.2rem) rotateZ(-45deg);
     }
