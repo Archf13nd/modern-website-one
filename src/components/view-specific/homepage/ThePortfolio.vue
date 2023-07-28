@@ -33,7 +33,7 @@
         <img src="https://cdn.pixabay.com/photo/2017/12/23/19/53/lost-places-3035877__340.jpg" alt="" />
       </div>
     </div>
-    <a class="button button--portfolio">View more</a>
+
   </section>
 </template>
 
@@ -58,28 +58,29 @@ export default {
 
 .gallery {
   grid-column: 1 / 4;
+  width: 40%;
   margin: 10rem 3rem;
   display: grid;
+  place-self: center;
   justify-content: center;
-  gap: 2rem;
-  grid-template-columns: repeat(auto-fill, 32%);
+  place-items: center;
+  gap: 5rem;
+  grid-template-columns: repeat(3, 1fr);
 
   &__photo {
+
     position: relative;
-    width: 100%;
+    width: 30rem;
+    height: 30rem;
     overflow: hidden;
     background: #000;
+    border-radius: 2rem;
 
-    &::after {
-      content: "";
-      display: block;
-      padding-bottom: 100%;
-    }
+
 
     &>img {
-      position: absolute;
-      height: 100%;
       width: 100%;
+      height: 100%;
       object-fit: cover;
     }
   }
