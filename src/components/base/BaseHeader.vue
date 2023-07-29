@@ -16,22 +16,27 @@ header {
   justify-content: space-around;
   align-items: center;
 }
+
 a {
   font-size: 1rem;
+
 }
+
 .logo {
   font-size: 2em;
 }
+
 .nav {
   list-style: none;
   display: flex;
+
   &__item {
     margin: 1rem 2rem;
     font-weight: bold;
     transition: $transition-default;
     color: $color-black;
 
-    & > a {
+    &>a {
       font-size: 2em;
     }
 

@@ -1,3 +1,7 @@
+<script setup>
+import blankProfileIMG from "@/assets/images/blog/blank-profile-picture.png?format=png&quality=30&height=100&width=100"
+</script>
+
 <template>
   <section class="blog-article">
     <h1 class="blog-article__title">{{ blog.title }}</h1>
@@ -48,7 +52,7 @@
     </div>
 
     <div class="author">
-      <img src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png" alt="" />
+      <img :src="blankProfileIMG" alt="Blank profile placeholder" />
       <p>{{ blog.author }}</p>
     </div>
     <div class="blog-navigation">
@@ -104,11 +108,14 @@ export default {
   },
   mounted() {
     window.scrollTo(0, 0);
+    console.log(this.blog)
     this.$emit("lastVisitedBlog", this.blog);
   },
   updated() {
     window.scrollTo(0, 0);
-  },
+    console.log(this.blog, 'bu')
+    this.$emit("lastVisitedBlog", this.blog);
+  }
 };
 </script>
 

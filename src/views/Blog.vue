@@ -4,18 +4,18 @@
       <div class="menu__bar" :class="{ 'menu--open': menuOpen }"></div>
     </div>
     <router-view :blogs="filteredBlogs" @lastVisitedBlog="handleVisit"></router-view>
-    <the-side-nav :class="{ 'hide-on-small-screens': !menuOpen }" @searchInput="filter = $event"
-      :recentlyVisited="recentlyVisited"></the-side-nav>
+    <!-- <the-side-nav :class="{ 'hide-on-small-screens': !menuOpen }" @searchInput="filter = $event"
+      :recentlyVisited="recentlyVisited"></the-side-nav> -->
   </div>
 </template>
 
 <script>
-import TheSideNav from "../components/view-specific/blog/TheSideNav.vue";
+// import TheSideNav from "../components/view-specific/blog/TheSideNav.vue";
 import { tempBlogState } from "../assets/vue-mixins/temp-blog-state.js";
 export default {
   mixins: [tempBlogState],
   components: {
-    TheSideNav,
+    // TheSideNav,
   },
   data() {
     return {
@@ -50,8 +50,7 @@ export default {
     },
     handleVisit(e) {
       if (!this.recentlyVisited.find((item) => item.id === e.id)) {
-        console.log(this.recentlyVisited.length);
-        console.log(this.totalVisited);
+
         if (this.recentlyVisited.length >= 3) {
           this.recentlyVisited[this.totalVisited] = {
             id: e.id,

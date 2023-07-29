@@ -1,3 +1,12 @@
+<script setup>
+import img1 from "@/assets/images/epidemic.jpg?format=jpg&width=240&height=240&quality=80"
+import img2 from "@/assets/images/earth-in-bulb.jpg?format=jpg&width=240&height=240&quality=80"
+import img3 from "@/assets/images/crystal.jpg?format=jpg&width=240&height=240&quality=80"
+import img4 from "@/assets/images/red-blood-cells.jpg?format=jpg&width=240&height=240&quality=80"
+import img5 from "@/assets/images/the-periodic-table.jpg?format=jpg&width=240&height=240&quality=80"
+import img6 from "@/assets/images/test-tubes.jpg?format=jpg&width=240&height=240&quality=80"
+</script>
+
 <template>
   <section class="portfolio" ref="portfolio">
     <the-type-box :animate="animatePortfolio">
@@ -15,22 +24,22 @@
     </the-type-box>
     <div class="gallery">
       <div class="gallery__photo">
-        <img src="https://cdn.pixabay.com/photo/2011/12/13/14/31/earth-11015_960_720.jpg" alt="" />
+        <img :src="img1" alt="" />
       </div>
       <div class="gallery__photo">
-        <img src="https://cdn.pixabay.com/photo/2014/12/27/16/38/planet-581239_960_720.jpg" alt="" />
+        <img :src="img2" alt="" />
       </div>
       <div class="gallery__photo">
-        <img src="https://cdn.pixabay.com/photo/2011/12/14/12/17/galaxy-11098_960_720.jpg" alt="" />
+        <img :src="img3" alt="" />
       </div>
       <div class="gallery__photo">
-        <img src="https://cdn.pixabay.com/photo/2015/04/25/23/32/wormhole-739872_960_720.png" alt="" />
+        <img :src="img4" alt="" />
       </div>
       <div class="gallery__photo">
-        <img src="https://cdn.pixabay.com/photo/2011/12/14/12/23/solar-system-11111_960_720.jpg" alt="" />
+        <img :src="img5" alt="" />
       </div>
       <div class="gallery__photo">
-        <img src="https://cdn.pixabay.com/photo/2017/12/23/19/53/lost-places-3035877__340.jpg" alt="" />
+        <img :src="img6" alt="" />
       </div>
     </div>
 

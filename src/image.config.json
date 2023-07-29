@@ -1,0 +1,11 @@
+{
+  "hero": {
+    "xl": "/assets/img/Hero.jpg",
+    "desktop": {
+      "name": "Hero",
+      "settings": "?quality=1"
+    },
+    "tablet": "assets/img/Hero.jpg",
+    "mobile": "assets/img/Hero.jpg"
+  }
+}

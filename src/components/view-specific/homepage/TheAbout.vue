@@ -1,3 +1,10 @@
+<script setup>
+import cardIMG1 from "@/assets/images/man-in-labcoat.jpg?format=jpg&height=564&width=349&quality=80"
+import cardIMG2 from "@/assets/images/microscope.jpg?format=jpg&height=564&width=349&quality=70"
+import cardIMG3 from "@/assets/images/math-work.jpg?format=jpg&height=564&width=349&quality=70"
+import buildingImg from "@/assets/images/building.jpg?format=jpg&height=1024&width=944&quality=15"
+</script>
+
 <template>
   <div class="about" ref="about">
     <the-type-box :animate="animateAbout">
@@ -25,21 +32,30 @@
       <transition :css="false" @enter="enter">
         <div v-show="animateCards || smallScreenTrue" :style="{ transform: `translateX(-${startDistance}px)` }"
           class="cards__card cards__card--1">
-          <h1>Hello</h1>
+          <div class="cards__img">
+            <img :src="cardIMG1" alt="">
+          </div>
+          <h1>Scientists</h1>
         </div>
       </transition>
 
       <transition :css="false" @enter="enter">
         <div v-show="animateCards || smallScreenTrue" :style="{ transform: `translateY(-${startDistance}px)` }"
           class="cards__card cards__card--2">
-          <h1>Greetings</h1>
+          <div class="cards__img">
+            <img :src="cardIMG2" alt="">
+          </div>
+          <h1>Microbiology</h1>
         </div>
       </transition>
 
       <transition :css="false" @enter="enter">
         <div v-show="animateCards || smallScreenTrue" :style="{ transform: `translateX(${startDistance}px)` }"
           class="cards__card cards__card--3">
-          <h1>Hi</h1>
+          <div class="cards__img">
+            <img :src="cardIMG3" alt="">
+          </div>
+          <h1>Math!</h1>
         </div>
       </transition>
     </div>
@@ -72,7 +88,7 @@
         </p>
         <a href="#" class="button button--outro-text">View More</a>
       </div>
-      <div class="outro-text outro-text--2">
+      <div class="outro-text outro-text--2" :style="{ backgroundImage: `url(${buildingImg})` }">
         <div class="headings">
           <h3 class="headings__section-title">Advantages</h3>
           <h2 class="headings__title">Working on exclusive projects</h2>
@@ -152,6 +168,18 @@ export default {
     flex-direction: row;
   }
 
+  &__img {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+
+    & img {
+      height: 100%;
+      width: 100%;
+      object-fit: cover;
+    }
+  }
+
   &__card {
     width: 349px;
     height: 564px;
@@ -160,11 +188,18 @@ export default {
     justify-content: center;
     align-items: flex-end;
     margin: 3rem 2rem;
+    color: #000;
 
     &>h1 {
       color: $color-white;
       margin-bottom: 10rem;
       transition: $transition-default;
+      z-index: 100;
+      color: inherit;
+      // mix-blend-mode: exclusion;
+      background: #fff;
+      width: 100%;
+      text-align: center;
 
       &:hover {
         color: $color-primary;
@@ -172,16 +207,10 @@ export default {
     }
 
     &--1 {
-      background: center / 180% no-repeat url("https://cdn.pixabay.com/photo/2018/10/22/11/51/lava-3765142_960_720.jpg");
+      color: #000;
     }
 
-    &--2 {
-      background: center / 280% no-repeat url("https://cdn.pixabay.com/photo/2016/08/26/12/58/universe-1622107_960_720.jpg") #000;
-    }
 
-    &--3 {
-      background: center / 260% no-repeat url("https://cdn.pixabay.com/photo/2019/05/09/16/00/fantasy-4191425_960_720.jpg") #000;
-    }
   }
 }
 
@@ -272,7 +301,7 @@ export default {
     &--2 {
       @media screen and (min-width: 600px) {
         color: $color-black;
-        background: center / cover no-repeat url("https://cdn.pixabay.com/photo/2016/12/17/20/05/building-1914309_960_720.jpg") rgba(211, 192, 150, 0.897);
+        background: center / cover no-repeat rgba(211, 192, 150, 0.897);
         background-blend-mode: screen;
       }
 

@@ -1,14 +1,19 @@
+<script setup>
+import magnifyingGlass from "@/assets/images/blog/magnifying-glass.jpg?format=jgp&width=20&height=20&quality=30"
+</script>
+
 <template>
   <div class="side-nav">
     <div class="search">
-      <input
-        type="text"
-        @input="sendSearchInput"
-        v-model="searchInput"
-        placeholder="Enter Keyword Search"
-      /><span>
-        <div class="search__icon"></div>
-      </span>
+      <label class="search__label" for="search-bar">Search</label>
+      <div class="search__bar">
+        <input type="text" id="search-bar" @input="sendSearchInput" v-model="searchInput"
+          placeholder="Enter Keyword Search" />
+        <span>
+          <div class="search__icon" :style="{ backgroundImage: `url(${magnifyingGlass})` }"></div>
+        </span>
+
+      </div>
     </div>
     <div class="line-break"></div>
     <h4>Recent</h4>
@@ -31,14 +36,13 @@
 <script>
 export default {
   props: ["recentlyVisited"],
-  date() {
+  data() {
     return {
       searchInput: "",
     };
   },
   methods: {
     sendSearchInput() {
-      console.log(this.searchInput);
       this.$emit("searchInput", this.searchInput);
     },
   },
@@ -52,7 +56,7 @@ export default {
   display: flex;
   flex-direction: column;
 
-  & > h4 {
+  &>h4 {
     font-size: 2.25em;
   }
 
@@ -63,12 +67,12 @@ export default {
     margin: 0;
     padding: 0;
 
-    & > li {
+    &>li {
       margin: 2rem 0;
       font-weight: 600;
       transition: transition-default;
 
-      & > a {
+      &>a {
         font-size: 1em;
       }
 
@@ -82,13 +86,22 @@ export default {
 .search {
   display: flex;
   width: 100%;
+  flex-direction: column;
   justify-content: space-between;
 
+  &__label {
+    display: block;
+    font-size: 1.6rem;
+  }
+
+  &__bar {
+    display: flex;
+  }
+
   &__icon {
-    width: 100%;
-    height: 100%;
-    background: no-repeat center/50%
-      url("https://cdn.pixabay.com/photo/2015/12/08/17/38/magnifying-glass-1083373_960_720.png");
+    width: 4rem;
+    height: 4rem;
+    background: no-repeat center/50%;
     mix-blend-mode: intensity;
   }
 
@@ -98,7 +111,7 @@ export default {
     width: 100%;
   }
 
-  & > span {
+  &>span {
     height: 4rem;
     flex: 0 0 4rem;
     border-radius: 5px;

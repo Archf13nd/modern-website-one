@@ -1,5 +1,10 @@
+<script setup>
+import heroIMG from "@/assets/images/hero.jpg?format=jpg&quality=50&height=1080&width=1920"
+console.log(heroIMG)
+</script>
+
 <template>
-  <div class="hero">
+  <div class="hero" :style="{ 'backgroundImage': `url(${heroIMG})` }">
     <div class="hero__text">
       <h1 class="hero__title">We build the future</h1>
       <h2 class="hero__title hero__title--sub">Idea - solution - results</h2>
@@ -8,11 +13,12 @@
   </div>
 </template>
 
+
 <style lang="scss" scoped>
 .hero {
   width: 100%;
   height: calc(100vh - #{$height-header});
-  background: center/cover no-repeat url("@/assets/img/Hero.jpg");
+  background: center/cover no-repeat;
 
   display: grid;
   place-items: center;

@@ -1,3 +1,14 @@
+import blog0IMG from "@/assets/images/blog/magnetar.jpg?format=jpg&height=370&width=550&quality=70";
+import blog1IMG from "@/assets/images/blog/eclipse.jpg?format=jpg&height=370&width=550&quality=70";
+import blog2IMG from "@/assets/images/blog/water.jpg?format=jpg&height=370&width=550&quality=70";
+import blog3IMG from "@/assets/images/blog/moon.jpg?format=jpg&height=370&width=550&quality=70";
+import blog4IMG from "@/assets/images/blog/robot.jpg?format=jpgheight=370&width=550&&quality=70";
+
+import blog0IMGSecondary from "@/assets/images/blog/space-dust.jpg?format=jpg&height=205&width=276&quality=70";
+import blog1IMGSecondary from "@/assets/images/blog/black-hole2.jpg?format=jpg&height=205&width=276&quality=70";
+import blog2IMGSecondary from "@/assets/images/blog/video-gaming.jpg?format=jpg&height=205&width=276&quality=70";
+import blog3IMGSecondary from "@/assets/images/blog/earth-from-moon.jpg?format=jpg&height=205&width=276&quality=70";
+import blog4IMGSecondary from "@/assets/images/blog/ai.jpg?format=jpg&height=205&width=276&quality=70";
 export const tempBlogState = {
   data() {
     return {
@@ -8,8 +19,7 @@ export const tempBlogState = {
           author: "Admin",
           category: "Space",
           date: new Date().getFullYear(),
-          img:
-            "https://cdn.pixabay.com/photo/2020/09/26/11/39/magnetar-5603793_960_720.jpg",
+          img: blog0IMG,
           contentData: {
             order: ["p", "p", "i", "q", "p"],
             paragraphs: {
@@ -42,10 +52,7 @@ export const tempBlogState = {
             quotes: [
               "The time it takes to die less than the time it takes to live",
             ],
-            images: [
-              "https://cdn.pixabay.com/photo/2015/10/12/14/59/milky-way-984050_960_720.jpg",
-              "https://cdn.pixabay.com/photo/2012/08/25/22/22/saturn-54999_960_720.jpg",
-            ],
+            images: [blog0IMGSecondary],
           },
         },
         {
@@ -54,8 +61,7 @@ export const tempBlogState = {
           author: "Admin",
           category: "Space",
           date: new Date().getFullYear(),
-          img:
-            "https://cdn.pixabay.com/photo/2016/07/02/12/21/eclipse-1492818_960_720.jpg",
+          img: blog1IMG,
           contentData: {
             order: ["p", "p", "i", "q", "p"],
             paragraphs: {
@@ -88,10 +94,7 @@ export const tempBlogState = {
             quotes: [
               "The time it takes to die less than the time it takes to live",
             ],
-            images: [
-              "https://cdn.pixabay.com/photo/2015/10/12/14/59/milky-way-984050_960_720.jpg",
-              "https://cdn.pixabay.com/photo/2012/08/25/22/22/saturn-54999_960_720.jpg",
-            ],
+            images: [blog1IMGSecondary],
           },
         },
         {
@@ -100,8 +103,7 @@ export const tempBlogState = {
           author: "Admin",
           category: "Video Games",
           date: new Date().getFullYear(),
-          img:
-            "https://cdn.pixabay.com/photo/2016/10/22/15/32/water-1761027_960_720.jpg",
+          img: blog2IMG,
           contentData: {
             order: ["p", "p", "i", "q", "p"],
             paragraphs: {
@@ -134,10 +136,7 @@ export const tempBlogState = {
             quotes: [
               "The time it takes to die less than the time it takes to live",
             ],
-            images: [
-              "https://cdn.pixabay.com/photo/2015/10/12/14/59/milky-way-984050_960_720.jpg",
-              "https://cdn.pixabay.com/photo/2012/08/25/22/22/saturn-54999_960_720.jpg",
-            ],
+            images: [blog2IMGSecondary],
           },
         },
         {
@@ -146,8 +145,7 @@ export const tempBlogState = {
           author: "Admin",
           category: "Society",
           date: new Date().getFullYear(),
-          img:
-            "https://cdn.pixabay.com/photo/2017/02/08/12/46/moon-2048727_960_720.jpg",
+          img: blog3IMG,
           contentData: {
             order: ["p", "p", "i", "q", "p"],
             paragraphs: {
@@ -180,10 +178,7 @@ export const tempBlogState = {
             quotes: [
               "The time it takes to die less than the time it takes to live",
             ],
-            images: [
-              "https://cdn.pixabay.com/photo/2015/10/12/14/59/milky-way-984050_960_720.jpg",
-              "https://cdn.pixabay.com/photo/2012/08/25/22/22/saturn-54999_960_720.jpg",
-            ],
+            images: [blog3IMGSecondary],
           },
         },
         {
@@ -192,8 +187,7 @@ export const tempBlogState = {
           author: "Admin",
           category: "Programming",
           date: new Date().getFullYear(),
-          img:
-            "https://cdn.pixabay.com/photo/2017/05/10/19/29/robot-2301646_960_720.jpg",
+          img: blog4IMG,
           contentData: {
             order: ["p", "p", "i", "q", "p"],
             paragraphs: {
@@ -226,10 +220,7 @@ export const tempBlogState = {
             quotes: [
               "The time it takes to die less than the time it takes to live",
             ],
-            images: [
-              "https://cdn.pixabay.com/photo/2015/10/12/14/59/milky-way-984050_960_720.jpg",
-              "https://cdn.pixabay.com/photo/2012/08/25/22/22/saturn-54999_960_720.jpg",
-            ],
+            images: [blog4IMGSecondary],
           },
         },
       ],
